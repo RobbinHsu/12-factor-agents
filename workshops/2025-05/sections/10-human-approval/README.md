@@ -1,17 +1,29 @@
 # Chapter 10 - Adding Human Approval
+# 第 10 章 - 加入 Human Approval
 
 Add support for human approval of operations.
 
+加入對操作進行 human approval 的支援。
+
 for this section, we'll disable the baml logs. You can optionally enable them if you want to see more details.
+
+在本章節中，我們會停用 baml logs。若你想查看更多細節，也可以自行啟用。
 
     export BAML_LOG=off
 
 update the server to handle human approvals
 
+更新 server 以處理 human approvals。
+
 * Import `handleNextStep` to execute approved actions
 * Add two payload types to distinguish approvals from responses
 * Handle responses and approvals differently in the endpoint
 * Show better error messages when things go wrongs
+
+* 匯入 `handleNextStep` 以執行已核准的動作
+* 加入兩種 payload type，以區分 approvals 與 responses
+* 在 endpoint 中以不同方式處理 responses 與 approvals
+* 在發生問題時顯示更好的錯誤訊息
 
 
 ```diff
@@ -38,6 +50,7 @@ src/server.ts
 +type Payload = ApprovalPayload | ResponsePayload;
 +
  // POST /thread/:id/response - Handle clarification response
+ // POST /thread/:id/response - 處理 clarification 回應
  app.post('/thread/:id/response', async (req, res) => {
          return res.status(404).json({ error: "Thread not found" });
      }
@@ -53,12 +66,14 @@ src/server.ts
 +        });
 +    } else if (thread.awaitingHumanApproval() && body.type === 'approval' && !body.approved) {
 +        // push feedback onto the thread
++        // 將 feedback 推送到 thread
 +        thread.events.push({
 +            type: "tool_response",
 +            data: `user denied the operation with feedback: "${body.comment}"`
 +        });
 +    } else if (thread.awaitingHumanApproval() && body.type === 'approval' && body.approved) {
 +        // approved, run the tool, pushing results onto the thread
++        // 已核准，執行 tool，並將結果推送到 thread
 +        await handleNextStep(lastEvent.data, thread);
 +    } else {
 +        res.status(400).json({
@@ -76,6 +91,7 @@ src/server.ts
 -    });
 -    
      // loop until stop event
+     // 持續迴圈直到遇到停止事件
      const newThread = await agentLoop(thread);
      store.update(req.params.id, newThread);
  
@@ -86,13 +102,15 @@ src/server.ts
 ```
 
 <details>
-<summary>skip this step</summary>
+<summary>skip this step / 略過此步驟</summary>
 
     cp ./walkthrough/10-server.ts src/server.ts
 
 </details>
 
 Add a few methods to the agent to handle approvals and responses
+
+在 agent 中加入幾個方法，以處理 approvals 與 responses。
 
 ```diff
 src/agent.ts
@@ -111,9 +129,11 @@ src/agent.ts
  }
  
                  // response to human, return the thread
+                 // 回應給人類，回傳 thread
                  return thread;
 +            case "divide":
 +                // divide is scary, return it for human approval
++                // divide 比較敏感，先回傳並等待 human approval
 +                return thread;
              case "add":
              case "subtract":
@@ -124,7 +144,7 @@ src/agent.ts
 ```
 
 <details>
-<summary>skip this step</summary>
+<summary>skip this step / 略過此步驟</summary>
 
     cp ./walkthrough/10-agent.ts src/agent.ts
 
@@ -132,15 +152,21 @@ src/agent.ts
 
 Start the server
 
+啟動 server
+
     npx tsx src/server.ts
 
 Test division with approval
+
+測試需要 approval 的除法流程
 
     curl -X POST http://localhost:3000/thread \
   -H "Content-Type: application/json" \
   -d '{"message":"can you divide 3 by 4"}'
 
 You should see:
+
+你應該會看到：
 
     {
   "thread_id": "2b243b66-215a-4f37-8bc6-9ace3849043b",
@@ -163,11 +189,15 @@ You should see:
 
 reject the request with another curl call, changing the thread ID
 
+使用另一個 curl 呼叫拒絕此請求，並替換 thread ID。
+
     curl -X POST 'http://localhost:3000/thread/{thread_id}/response' \
   -H "Content-Type: application/json" \
   -d '{"type": "approval", "approved": false, "comment": "I dont think thats right, use 5 instead of 4"}'
 
 You should see: the last tool call is now `"intent":"divide","a":3,"b":5`
+
+你應該會看到：最後一個 tool call 現在變成 `"intent":"divide","a":3,"b":5`。
 
     {
   "events": [
@@ -202,11 +232,15 @@ You should see: the last tool call is now `"intent":"divide","a":3,"b":5`
 
 now you can approve the operation
 
+現在你可以核准這個操作。
+
     curl -X POST 'http://localhost:3000/thread/{thread_id}/response' \
   -H "Content-Type: application/json" \
   -d '{"type": "approval", "approved": true}'
 
 you should see the final message includes the tool response and final result!
+
+你應該會看到最終訊息包含 tool response 與最終結果！
 
     ...
 {
