@@ -3,16 +3,16 @@
 
 Steps to start from a bare TS repo and build up a 12-factor agent. This walkthrough will guide you through creating a TypeScript agent that follows the 12-factor methodology.
 
+從裸 TS 儲存庫開始，逐步建立 12-factor agent。本指南將帶領你建立一個遵循 12-factor 方法論的 TypeScript agent。
+
 ## Cleanup
 ## 清理
 
 Make sure you're starting from a clean slate
 
-
-請確認你是從乾淨的起始狀態開始。
+確保你從乾淨的起始狀態開始
 
 Clean up existing files
-
 
 清理現有檔案
 
@@ -23,11 +23,9 @@ Clean up existing files
 
 Let's start with a basic TypeScript setup and a hello world program.
 
-
 讓我們從基本的 TypeScript 設定與一個 hello world 程式開始。
 
 This guide is written in TypeScript (yes, a python version is coming soon)
-
 
 本指南以 TypeScript 撰寫（是的，Python 版本很快就會推出）。
 
@@ -35,18 +33,15 @@ There are many checkpoints between the every file edit in theworkshop steps,
 so even if you aren't super familiar with typescript,
 you should be able to keep up and run each example.
 
-
 在 workshop 步驟中，每次檔案編輯之間都設有許多檢查點，
 因此即使你對 TypeScript 不是特別熟悉，
 也應該能跟上並執行每個範例。
 
 To run this guide, you'll need a relatively recent version of nodejs and npm installed
 
-
 要執行本指南，你需要先安裝相對較新的 nodejs 與 npm 版本。
 
 You can use whatever nodejs version manager you want, [homebrew](https://formulae.brew.sh/formula/node) is fine
-
 
 你可以使用任何你喜歡的 nodejs 版本管理工具，[homebrew](https://formulae.brew.sh/formula/node) 也可以。
 
@@ -54,22 +49,23 @@ You can use whatever nodejs version manager you want, [homebrew](https://formula
 
 You should see the node version
 
-
 你應該會看到 node 的版本資訊
 
     node --version
 
 Copy initial package.json
+
 複製初始的 package.json
 
     cp ./walkthrough/00-package.json package.json
 
 <details>
+
 <summary>show file / 顯示檔案</summary>
 
 ```json
 // ./walkthrough/00-package.json
-// 檔案: ./walkthrough/00-package.json
+// 檔案路徑：./walkthrough/00-package.json
 {
     "name": "my-agent",
     "version": "0.1.0",
@@ -94,21 +90,24 @@ Copy initial package.json
 </details>
 
 Install dependencies
+
 安裝相依套件
 
     npm install
 
 Copy tsconfig.json
+
 複製 tsconfig.json
 
     cp ./walkthrough/00-tsconfig.json tsconfig.json
 
 <details>
+
 <summary>show file / 顯示檔案</summary>
 
 ```json
 // ./walkthrough/00-tsconfig.json
-// 檔案: ./walkthrough/00-tsconfig.json
+// 檔案路徑：./walkthrough/00-tsconfig.json
 {
     "compilerOptions": {
       "target": "ES2017",
@@ -137,16 +136,18 @@ Copy tsconfig.json
 </details>
 
 add .gitignore
+
 新增 .gitignore
 
     cp ./walkthrough/00-.gitignore .gitignore
 
 <details>
+
 <summary>show file / 顯示檔案</summary>
 
 ```gitignore
 // ./walkthrough/00-.gitignore
-// 檔案: ./walkthrough/00-.gitignore
+// 檔案路徑：./walkthrough/00-.gitignore
 baml_client/
 node_modules/
 ```
@@ -154,21 +155,22 @@ node_modules/
 </details>
 
 Create src folder
+
 建立 src 資料夾
 
-    mkdir -p src
-
 Add a simple hello world index.ts
+
 加入一個簡單的 hello world index.ts
 
     cp ./walkthrough/00-index.ts src/index.ts
 
 <details>
+
 <summary>show file / 顯示檔案</summary>
 
 ```ts
 // ./walkthrough/00-index.ts
-// 檔案: ./walkthrough/00-index.ts
+// 檔案路徑：./walkthrough/00-index.ts
 async function hello(): Promise<void> {
     console.log('hello, world!')
 }
@@ -184,13 +186,11 @@ main().catch(console.error)
 
 Run it to verify
 
-
 執行以驗證
 
     npx tsx src/index.ts
 
 You should see:
-
 
 你應該會看到：
 
@@ -201,12 +201,10 @@ You should see:
 
 Now let's add BAML and create our first agent with a CLI interface.
 
-
 現在讓我們加入 BAML，並建立第一個帶有 CLI 介面的 agent。
 
 First, we'll need to install [BAML](https://github.com/boundaryml/baml)
 which is a tool for prompting and structured outputs.
-
 
 首先，我們需要安裝 [BAML](https://github.com/boundaryml/baml)，
 它是一個用於 prompt 與結構化輸出的工具。
@@ -215,13 +213,11 @@ which is a tool for prompting and structured outputs.
 
 Initialize BAML
 
-
 初始化 BAML
 
     npx baml-cli init
 
 Remove default resume.baml
-
 
 移除預設的 resume.baml
 
@@ -229,17 +225,17 @@ Remove default resume.baml
 
 Add our starter agent, a single baml prompt that we'll build on
 
-
 加入我們的起始 agent，也就是一個之後會持續擴充的單一 BAML prompt
 
     cp ./walkthrough/01-agent.baml baml_src/agent.baml
 
 <details>
+
 <summary>show file / 顯示檔案</summary>
 
 ```rust
 // ./walkthrough/01-agent.baml
-// 檔案: ./walkthrough/01-agent.baml
+// 檔案路徑：./walkthrough/01-agent.baml
 class DoneForNow {
   intent "done_for_now"
   message string 
@@ -257,9 +253,11 @@ function DetermineNextStep(
     thread: string 
 ) -> DoneForNow {
     client Qwen3
+    // client "openai/gpt-4o"
+    // 使用 client "openai/gpt-4o"
 
     // use /nothink for now because the thinking tokens (or streaming thereof) screw with baml (i think (no pun intended))
-    // 目前先使用 /nothink，因為思考 token（或其串流）會干擾 baml（我想是這樣，雙關無意）
+    // 目前先使用 /nothink，因為 thinking tokens（或其串流輸出）會把 baml 弄壞（我想啦，這不是雙關）
     prompt #"
         {{ _.role("system") }}
 
@@ -296,13 +294,11 @@ test HelloWorld {
 
 Generate BAML client code
 
-
 產生 BAML client 程式碼
 
     npx baml-cli generate
 
 Enable BAML logging for this section
-
 
 為本節啟用 BAML 日誌
 
@@ -310,19 +306,19 @@ Enable BAML logging for this section
 
 Add the CLI interface
 
-
 加入 CLI 介面
 
     cp ./walkthrough/01-cli.ts src/cli.ts
 
 <details>
+
 <summary>show file / 顯示檔案</summary>
 
 ```ts
 // ./walkthrough/01-cli.ts
-// ./walkthrough/01-cli.ts
+// 檔案路徑：./walkthrough/01-cli.ts
 // cli.ts lets you invoke the agent loop from the command line
-// cli.ts 讓你可以從命令列呼叫 agent loop
+// cli.ts 讓你可以從命令列啟動 agent loop
 
 import { agentLoop, Thread, Event } from "./agent";
 
@@ -337,15 +333,15 @@ export async function cli() {
     }
 
     // Join all arguments into a single message
-    // 將所有參數合併為單一訊息
+    // 將所有參數串接成單一訊息
     const message = args.join(" ");
 
     // Create a new thread with the user's message as the initial event
-    // 以使用者的訊息作為初始事件來建立新的 thread
+    // 使用使用者訊息作為初始事件來建立新的 thread
     const thread = new Thread([{ type: "user_input", data: message }]);
 
     // Run the agent loop with the thread
-    // 用該 thread 執行 agent loop
+    // 以該 thread 執行 agent loop
     const result = await agentLoop(thread);
     console.log(result);
 }
@@ -354,7 +350,6 @@ export async function cli() {
 </details>
 
 Update index.ts to use the CLI
-
 
 更新 index.ts 以使用 CLI
 
@@ -373,6 +368,7 @@ src/index.ts
 ```
 
 <details>
+
 <summary>skip this step / 跳過此步驟</summary>
 
     cp ./walkthrough/01-index.ts src/index.ts
@@ -381,21 +377,21 @@ src/index.ts
 
 Add the agent implementation
 
-
 加入 agent 實作
 
     cp ./walkthrough/01-agent.ts src/agent.ts
 
 <details>
+
 <summary>show file / 顯示檔案</summary>
 
 ```ts
 // ./walkthrough/01-agent.ts
-// ./walkthrough/01-agent.ts
+// 檔案路徑：./walkthrough/01-agent.ts
 import { b } from "../baml_client";
 
 // tool call or a respond to human tool
-// tool call 或回覆 human 的工具
+// tool call 或回覆 human 的 tool
 type AgentResponse = Awaited<ReturnType<typeof b.DetermineNextStep>>;
 
 export interface Event {
@@ -412,7 +408,7 @@ export class Thread {
 
     serializeForLLM() {
         // can change this to whatever custom serialization you want to do, XML, etc
-        // 可改成任何你想要的自訂序列化格式，例如 XML 等
+        // 可以改成任何你想要的自訂序列化格式，例如 XML 等
         // e.g. https://github.com/got-agents/agents/blob/59ebbfa236fc376618f16ee08eb0f3bf7b698892/linear-assistant-ts/src/agent.ts#L66-L105
         // 例如：https://github.com/got-agents/agents/blob/59ebbfa236fc376618f16ee08eb0f3bf7b698892/linear-assistant-ts/src/agent.ts#L66-L105
         return JSON.stringify(this.events);
@@ -433,12 +429,10 @@ export async function agentLoop(thread: Thread): Promise<AgentResponse> {
 
 The the BAML code is configured to use BASETEN_API_KEY by default
 
-
 BAML 程式碼預設會使用 BASETEN_API_KEY。
 
 To get a Baseten API key and URL, create an account at [baseten.co](https://baseten.co),
 and then deploy [Qwen3 32B from the model library](https://www.baseten.co/library/qwen-3-32b/).
-
 
 若要取得 Baseten API 金鑰與 URL，請先在 [baseten.co](https://baseten.co) 建立帳號，
 然後從模型庫部署 [Qwen3 32B from the model library](https://www.baseten.co/library/qwen-3-32b/)。
@@ -447,56 +441,47 @@ and then deploy [Qwen3 32B from the model library](https://www.baseten.co/librar
   function DetermineNextStep(thread: string) -> DoneForNow {
       client Qwen3
       // ...
-      // ...
+      // ……
 ```
 
 If you want to run the example with no changes, you can set the BASETEN_API_KEY env var to any valid baseten key.
-
 
 如果你想在不修改範例的情況下直接執行，可以將 BASETEN_API_KEY 環境變數設為任何有效的 Baseten 金鑰。
 
 If you want to try swapping out the model, you can change the `client` line.
 
-
 如果你想嘗試替換模型，可以修改 `client` 那一行。
 
 [Docs on baml clients can be found here](https://docs.boundaryml.com/guide/baml-basics/switching-llms)
-
 
 關於 baml clients 的文件可在上述連結找到。
 
 For example, you can configure [gemini](https://docs.boundaryml.com/ref/llm-client-providers/google-ai-gemini) 
 or [anthropic](https://docs.boundaryml.com/ref/llm-client-providers/anthropic) as your model provider.
 
-
 例如，你可以將 [gemini](https://docs.boundaryml.com/ref/llm-client-providers/google-ai-gemini)
 或 [anthropic](https://docs.boundaryml.com/ref/llm-client-providers/anthropic) 設定為你的模型提供者。
 
 For example, to use openai with an OPENAI_API_KEY, you can do:
 
-
 例如，若要搭配 OPENAI_API_KEY 使用 openai，可以這樣做：
 
     client "openai/gpt-4o"
 
-
 Set your env vars
-
 
 設定你的環境變數
 
     export BASETEN_API_KEY=...
-    export BASETEN_BASE_URL=...
+export BASETEN_BASE_URL=...
 
 Try it out
-
 
 試跑看看
 
     npx tsx src/index.ts hello
 
 you should see a familiar response from the model
-
 
 你應該會看到模型給出熟悉的回應
 
@@ -524,11 +509,12 @@ return as a "next step" in the agentic loop.
     cp ./walkthrough/02-tool_calculator.baml baml_src/tool_calculator.baml
 
 <details>
+
 <summary>show file / 顯示檔案</summary>
 
 ```rust
 // ./walkthrough/02-tool_calculator.baml
-// 檔案: ./walkthrough/02-tool_calculator.baml
+// 檔案路徑：./walkthrough/02-tool_calculator.baml
 type CalculatorTools = AddTool | SubtractTool | MultiplyTool | DivideTool
 
 
@@ -574,31 +560,12 @@ baml_src/agent.baml
      client Qwen3
 +
      // client "openai/gpt-4o"
-     // client "openai/gpt-4o"（可換成其他模型）
-
-     // use /nothink for now because the thinking tokens (or streaming thereof) screw with baml (i think (no pun intended))
-     // 暫時使用 /nothink，因為思考代幣（或其串流）會干擾 baml（我猜是這樣，並非字面）
-     prompt #"
-         {{ _.role("system") }}
-
-         /nothink 
-
-         You are a helpful assistant that can help with tasks.
-
-         {{ _.role("user") }}
-
-         You are working on the following thread:
-
-         {{ thread }}
-
-         What should the next step be?
-
-         {{ ctx.output_format }}
-     "#
- }
+     // 使用 client "openai/gpt-4o"
+ 
 ```
 
 <details>
+
 <summary>skip this step / 跳過此步驟</summary>
 
     cp ./walkthrough/02-agent.baml baml_src/agent.baml
@@ -643,11 +610,9 @@ src/agent.ts
  }
  
 -// right now this just runs one turn with the LLM, but
+-// 目前這只會執行 LLM 的單一回合，但
 -// we'll update this function to handle all the agent logic
-+// right now this just runs one turn with the LLM, but
-+// 目前此函式只與 LLM 執行一個回合，但
-+// we'll update this function to handle all the agent logic
-+// 我們將更新此函式以處理所有代理邏輯
+-// 我們會更新這個函式來處理所有 agent 邏輯
 -export async function agentLoop(thread: Thread): Promise<AgentResponse> {
 -    const nextStep = await b.DetermineNextStep(thread.serializeForLLM());
 -    return nextStep;
@@ -662,7 +627,7 @@ src/agent.ts
 +        switch (nextStep.intent) {
 +            case "done_for_now":
 +                // response to human, return the next step object
-+                // 回應人類，返回下一步物件
++                // 回覆 human，回傳 next step 物件
 +                return nextStep.message;
 +            case "add":
 +                thread.events.push({
@@ -681,9 +646,11 @@ src/agent.ts
 +        }
 +    }
  }
+ 
 ```
 
 <details>
+
 <summary>skip this step / 跳過此步驟</summary>
 
     cp ./walkthrough/03-agent.ts src/agent.ts
@@ -733,6 +700,7 @@ src/agent.ts
 +import { AddTool, SubtractTool, DivideTool, MultiplyTool, b } from "../baml_client";
  
 -// tool call or a respond to human tool
+-// tool call 或回覆 human 的 tool
 -type AgentResponse = Awaited<ReturnType<typeof b.DetermineNextStep>>;
 -
  export interface Event {
@@ -740,7 +708,7 @@ src/agent.ts
  }
  
 +export type CalculatorTool = AddTool | SubtractTool | MultiplyTool | DivideTool;
-+
+ 
 +export async function handleNextStep(nextStep: CalculatorTool, thread: Thread): Promise<Thread> {
 +    let result: number;
 +    switch (nextStep.intent) {
@@ -813,6 +781,7 @@ src/agent.ts
 ```
 
 <details>
+
 <summary>skip this step / 跳過此步驟</summary>
 
     cp ./walkthrough/03b-agent.ts src/agent.ts
@@ -874,8 +843,10 @@ baml_src/agent.baml
      client Qwen3
 -
      // client "openai/gpt-4o"
+     // 使用 client "openai/gpt-4o"
  
 -    // use /nothink for now because the thinking tokens (or streaming thereof) screw with baml (i think (no pun intended))
+-    // 目前先使用 /nothink，因為 thinking tokens（或其串流輸出）會把 baml 弄壞（我想啦，這不是雙關）
      prompt #"
          {{ _.role("system") }}
  
@@ -883,6 +854,7 @@ baml_src/agent.baml
          You are a helpful assistant that can help with tasks.
      "#
    }
++
 +test MathOperation {
 +  functions [DetermineNextStep]
 +  args {
@@ -898,6 +870,7 @@ baml_src/agent.baml
 ```
 
 <details>
+
 <summary>skip this step / 跳過此步驟</summary>
 
     cp ./walkthrough/04-agent.baml baml_src/agent.baml
@@ -938,6 +911,7 @@ baml_src/agent.baml
 ```
 
 <details>
+
 <summary>skip this step / 跳過此步驟</summary>
 
     cp ./walkthrough/04b-agent.baml baml_src/agent.baml
@@ -1043,6 +1017,7 @@ baml_src/agent.baml
 ```
 
 <details>
+
 <summary>skip this step / 跳過此步驟</summary>
 
     cp ./walkthrough/04c-agent.baml baml_src/agent.baml
@@ -1096,7 +1071,6 @@ baml_src/agent.baml
 +
 +  message string @description(#"
 +    message to send to the user about the work that was done. 
-+    發送給使用者的訊息，說明已完成的工作。
 +  "#)
  }
  
@@ -1115,6 +1089,7 @@ baml_src/agent.baml
 ```
 
 <details>
+
 <summary>skip this step / 跳過此步驟</summary>
 
     cp ./walkthrough/05-agent.baml baml_src/agent.baml
@@ -1148,16 +1123,18 @@ src/agent.ts
          switch (nextStep.intent) {
              case "done_for_now":
 -                // response to human, return the next step object
+-                // 回覆 human，回傳 next step 物件
 -                return nextStep.message;
 +            case "request_more_information":
 +                // response to human, return the thread
-+                // 回應人類，返回 thread（以便進一步的人類互動）
++                // 回覆 human，回傳 thread
 +                return thread;
              case "add":
              case "subtract":
 ```
 
 <details>
+
 <summary>skip this step / 跳過此步驟</summary>
 
     cp ./walkthrough/05-agent.ts src/agent.ts
@@ -1172,15 +1149,18 @@ by requesting input from the user on the CLI
 ```diff
 src/cli.ts
  // cli.ts lets you invoke the agent loop from the command line
- // cli.ts 讓你從命令列呼叫代理迴圈
--
+ // cli.ts 讓你可以從命令列啟動 agent loop
+ 
 -import { agentLoop, Thread, Event } from "./agent";
 +import { agentLoop, Thread, Event } from "../src/agent";
  
- 
++
++
  export async function cli() {
      // Get command line arguments, skipping the first two (node and script name)
+     // 取得命令列參數，略過前兩個（node 與 script 名稱）
      // Run the agent loop with the thread
+     // 以該 thread 執行 agent loop
      const result = await agentLoop(thread);
 -    console.log(result);
 +    let lastEvent = result.events.slice(-1)[0];
@@ -1193,11 +1173,13 @@ src/cli.ts
 +    }
 +
 +    // print the final result
++    // 輸出最終結果
 +    // optional - you could loop here too
++    // 選用 - 這裡也可以繼續迴圈
 +    console.log(lastEvent.data.message);
 +    process.exit(0);
  }
- 
++
 +async function askHuman(message: string) {
 +    const readline = require('readline').createInterface({
 +        input: process.stdin,
@@ -1213,6 +1195,7 @@ src/cli.ts
 ```
 
 <details>
+
 <summary>skip this step / 跳過此步驟</summary>
 
     cp ./walkthrough/05-cli.ts src/cli.ts
@@ -1236,6 +1219,8 @@ baml_src/agent.baml
      client Qwen3
 -
      // client "openai/gpt-4o"
+     // 使用 client "openai/gpt-4o"
+ 
  
  
 +
@@ -1270,6 +1255,7 @@ baml_src/agent.baml
 ```
 
 <details>
+
 <summary>skip this step / 跳過此步驟</summary>
 
     cp ./walkthrough/05b-agent.baml baml_src/agent.baml
@@ -1300,6 +1286,7 @@ baml_src/agent.baml
      client Qwen3
 +
      // client "openai/gpt-4o"
+     // 使用 client "openai/gpt-4o"
  
      "#
    }
@@ -1310,6 +1297,7 @@ baml_src/agent.baml
 ```
 
 <details>
+
 <summary>skip this step / 跳過此步驟</summary>
 
     cp ./walkthrough/05c-agent.baml baml_src/agent.baml
@@ -1352,9 +1340,9 @@ update the agent prompt to include a reasoning step
 baml_src/agent.baml
      api_key env.BASETEN_API_KEY 
    }
-
-function DetermineNextStep(
-
+ 
+ function DetermineNextStep(
+ 
          {{ ctx.output_format }}
 +
 +        First, always plan out what to do next, for example:
@@ -1373,6 +1361,7 @@ function DetermineNextStep(
 ```
 
 <details>
+
 <summary>skip this step / 跳過此步驟</summary>
 
     cp ./walkthrough/06-agent.baml baml_src/agent.baml
@@ -1396,7 +1385,6 @@ you should see output from the baml logs showing the reasoning steps
 你應該會在 baml 日誌中看到顯示推理步驟的輸出
 
 #### optional challenge
-
 可選挑戰
 
 add a field to your tool output format that includes the reasoning steps in the output!
@@ -1422,9 +1410,9 @@ update the agent to pretty-print the Context window for the model
 ```diff
 src/agent.ts
          // can change this to whatever custom serialization you want to do, XML, etc
+         // 可以改成任何你想要的自訂序列化格式，例如 XML 等
          // e.g. https://github.com/got-agents/agents/blob/59ebbfa236fc376618f16ee08eb0f3bf7b698892/linear-assistant-ts/src/agent.ts#L66-L105
-+        // 可以改成任何你想要的序列化格式，例如 XML 等
-+        // 例如: https://github.com/got-agents/agents/blob/59ebbfa236fc376618f16ee08eb0f3bf7b698892/linear-assistant-ts/src/agent.ts#L66-L105
+         // 例如：https://github.com/got-agents/agents/blob/59ebbfa236fc376618f16ee08eb0f3bf7b698892/linear-assistant-ts/src/agent.ts#L66-L105
 -        return JSON.stringify(this.events);
 +        return JSON.stringify(this.events, null, 2);
      }
@@ -1432,6 +1420,7 @@ src/agent.ts
 ```
 
 <details>
+
 <summary>skip this step / 跳過此步驟</summary>
 
     cp ./walkthrough/07-agent.ts src/agent.ts
@@ -1458,10 +1447,12 @@ among other things, because of the token efficiency of XML.
 
 ```diff
 src/agent.ts
-
+ 
      serializeForLLM() {
 -        // can change this to whatever custom serialization you want to do, XML, etc
+-        // 可以改成任何你想要的自訂序列化格式，例如 XML 等
 -        // e.g. https://github.com/got-agents/agents/blob/59ebbfa236fc376618f16ee08eb0f3bf7b698892/linear-assistant-ts/src/agent.ts#L66-L105
+-        // 例如：https://github.com/got-agents/agents/blob/59ebbfa236fc376618f16ee08eb0f3bf7b698892/linear-assistant-ts/src/agent.ts#L66-L105
 -        return JSON.stringify(this.events, null, 2);
 +        return this.events.map(e => this.serializeOneEvent(e)).join("\n");
      }
@@ -1480,9 +1471,11 @@ src/agent.ts
 +        `)
 +    }
  }
+ 
 ```
 
 <details>
+
 <summary>skip this step / 跳過此步驟</summary>
 
     cp ./walkthrough/07b-agent.ts src/agent.ts
@@ -1502,10 +1495,10 @@ lets update our tests to match the new output format
 ```diff
 baml_src/agent.baml
          {{ ctx.output_format }}
-
+ 
 -        First, always plan out what to do next, for example:
 +        Always think about what to do next first, like:
-
+ 
          - ...
    args {
      thread #"
@@ -1646,6 +1639,7 @@ baml_src/agent.baml
 ```
 
 <details>
+
 <summary>skip this step / 跳過此步驟</summary>
 
     cp ./walkthrough/07c-agent.baml baml_src/agent.baml
@@ -1684,11 +1678,12 @@ Add the server implementation
     cp ./walkthrough/08-server.ts src/server.ts
 
 <details>
+
 <summary>show file / 顯示檔案</summary>
 
 ```ts
 // ./walkthrough/08-server.ts
-// ./walkthrough/08-server.ts
+// 檔案路徑：./walkthrough/08-server.ts
 import express from 'express';
 import { Thread, agentLoop } from '../src/agent';
 
@@ -1697,6 +1692,7 @@ app.use(express.json());
 app.set('json spaces', 2);
 
 // POST /thread - Start new thread
+// POST /thread - 啟動新 thread
 app.post('/thread', async (req, res) => {
     const thread = new Thread([{
         type: "user_input",
@@ -1707,6 +1703,7 @@ app.post('/thread', async (req, res) => {
 });
 
 // GET /thread/:id - Get thread status 
+// GET /thread/:id - 取得 thread 狀態
 app.get('/thread/:id', (req, res) => {
     // optional - add state
     // 選用 - 可加入 state
@@ -1764,17 +1761,19 @@ Add some simple in-memory state management for threads
     cp ./walkthrough/09-state.ts src/state.ts
 
 <details>
+
 <summary>show file / 顯示檔案</summary>
 
 ```ts
 // ./walkthrough/09-state.ts
-// ./walkthrough/09-state.ts
+// 檔案路徑：./walkthrough/09-state.ts
 import crypto from 'crypto';
 import { Thread } from '../src/agent';
 
+
 // you can replace this with any simple state management,
+// 你可以將這裡替換成任何簡單的狀態管理方案，
 // e.g. redis, sqlite, postgres, etc
-// 你可以用任何簡單的狀態管理替代，
 // 例如 redis、sqlite、postgres 等
 export class ThreadStore {
     private threads: Map<string, Thread> = new Map();
@@ -1801,28 +1800,29 @@ update the server to use the state management
 
 更新 server，使用狀態管理
 
-- Add thread state management using `ThreadStore`
-- return thread IDs and response URLs from the /thread endpoint
-- implement GET /thread/:id
-- implement POST /thread/:id/response
+* Add thread state management using `ThreadStore`
+* return thread IDs and response URLs from the /thread endpoint
+* implement GET /thread/:id
+* implement POST /thread/:id/response
 
-- 使用 `ThreadStore` 加入 thread 狀態管理
-- 從 /thread 端點回傳 thread IDs 與 response URLs
-- 實作 GET /thread/:id
-- 實作 POST /thread/:id/response
+* 使用 `ThreadStore` 加入 thread 狀態管理
+* 從 /thread 端點回傳 thread IDs 與 response URLs
+* 實作 GET /thread/:id
+* 實作 POST /thread/:id/response
 
 ```diff
 src/server.ts
  import express from 'express';
  import { Thread, agentLoop } from '../src/agent';
 +import { ThreadStore } from '../src/state';
-
+ 
  const app = express();
  app.set('json spaces', 2);
-
+ 
 +const store = new ThreadStore();
 +
  // POST /thread - Start new thread
+ // POST /thread - 啟動新 thread
  app.post('/thread', async (req, res) => {
          data: req.body.message
      }]);
@@ -1836,8 +1836,9 @@ src/server.ts
 +
 +    const lastEvent = newThread.events[newThread.events.length - 1];
 +    // If we exited the loop, include the response URL so the client can
++    // 若我們離開了迴圈，將 response URL 附上，方便 client 推送新訊息
 +    // push a new message onto the thread
-+    // 若退出迴圈，包含 response URL 讓 client 可以將新訊息推到該 thread
++    // 將新訊息推送到 thread 上
 +    lastEvent.data.response_url = `/thread/${threadId}/response`;
 +
 +    console.log("returning last event from endpoint", lastEvent);
@@ -1847,9 +1848,10 @@ src/server.ts
 +        ...newThread 
 +    });
  });
-
+ 
  app.get('/thread/:id', (req, res) => {
 -    // optional - add state
+-    // 選用 - 可加入 state
 -    res.status(404).json({ error: "Not implemented yet" });
 +    const thread = store.get(req.params.id);
 +    if (!thread) {
@@ -1857,8 +1859,9 @@ src/server.ts
 +    }
 +    res.json(thread);
  });
-
+ 
 +// POST /thread/:id/response - Handle clarification response
++// POST /thread/:id/response - 處理澄清請求的回應
 +app.post('/thread/:id/response', async (req, res) => {
 +    let thread = store.get(req.params.id);
 +    if (!thread) {
@@ -1889,6 +1892,7 @@ src/server.ts
 ```
 
 <details>
+
 <summary>skip this step / 跳過此步驟</summary>
 
     cp ./walkthrough/09-server.ts src/server.ts
@@ -1926,15 +1930,15 @@ update the server to handle human approvals
 
 更新 server 以處理人工審批
 
-- Import `handleNextStep` to execute approved actions
-- Add two payload types to distinguish approvals from responses
-- Handle responses and approvals differently in the endpoint
-- Show better error messages when things go wrongs
+* Import `handleNextStep` to execute approved actions
+* Add two payload types to distinguish approvals from responses
+* Handle responses and approvals differently in the endpoint
+* Show better error messages when things go wrongs
 
-- 匯入 `handleNextStep` 以執行已核准的動作
-- 新增兩種 payload 類型以區分 approvals 與 responses
-- 在端點中分別處理 responses 與 approvals
-- 當錯誤發生時顯示更明確的錯誤訊息
+* 匯入 `handleNextStep` 以執行已核准的動作
+* 新增兩種 payload 類型以區分 approvals 與 responses
+* 在端點中分別處理 responses 與 approvals
+* 當錯誤發生時顯示更明確的錯誤訊息
 
 ```diff
 src/server.ts
@@ -1942,7 +1946,7 @@ src/server.ts
 -import { Thread, agentLoop } from '../src/agent';
 +import { Thread, agentLoop, handleNextStep } from '../src/agent';
  import { ThreadStore } from '../src/state';
-
+ 
  });
  
 +
@@ -1960,6 +1964,7 @@ src/server.ts
 +type Payload = ApprovalPayload | ResponsePayload;
 +
  // POST /thread/:id/response - Handle clarification response
+ // POST /thread/:id/response - 處理澄清請求的回應
  app.post('/thread/:id/response', async (req, res) => {
          return res.status(404).json({ error: "Thread not found" });
      }
@@ -1975,14 +1980,14 @@ src/server.ts
 +        });
 +    } else if (thread.awaitingHumanApproval() && body.type === 'approval' && !body.approved) {
 +        // push feedback onto the thread
-+        // 將回饋推到 thread
++        // 將回饋推送到 thread 上
 +        thread.events.push({
 +            type: "tool_response",
 +            data: `user denied the operation with feedback: "${body.comment}"`
 +        });
 +    } else if (thread.awaitingHumanApproval() && body.type === 'approval' && body.approved) {
 +        // approved, run the tool, pushing results onto the thread
-+        // 已核准，執行工具並將結果推到 thread
++        // 已核准，執行工具，將結果推送到 thread 上
 +        await handleNextStep(lastEvent.data, thread);
 +    } else {
 +        res.status(400).json({
@@ -2000,6 +2005,7 @@ src/server.ts
 -    });
 -    
      // loop until stop event
+     // 迴圈直到停止事件
      const newThread = await agentLoop(thread);
      store.update(req.params.id, newThread);
  
@@ -2010,6 +2016,7 @@ src/server.ts
 ```
 
 <details>
+
 <summary>skip this step / 跳過此步驟</summary>
 
     cp ./walkthrough/10-server.ts src/server.ts
@@ -2024,7 +2031,7 @@ Add a few methods to the agent to handle approvals and responses
 src/agent.ts
          `)
      }
- 
++
 +    awaitingHumanResponse(): boolean {
 +        const lastEvent = this.events[this.events.length - 1];
 +        return ['request_more_information', 'done_for_now'].includes(lastEvent.data.intent);
@@ -2037,10 +2044,11 @@ src/agent.ts
  }
  
                  // response to human, return the thread
+                 // 回覆 human，回傳 thread
                  return thread;
 +            case "divide":
 +                // divide is scary, return it for human approval
-+                // divide 操作風險較高，回傳以供人工審批
++                // divide 風險較高，回傳給人工審批
 +                return thread;
              case "add":
              case "subtract":
@@ -2051,6 +2059,7 @@ src/agent.ts
 ```
 
 <details>
+
 <summary>skip this step / 跳過此步驟</summary>
 
     cp ./walkthrough/10-agent.ts src/agent.ts
@@ -2201,21 +2210,24 @@ Update CLI to send `divide` and `request_more_information` to a human via email
 ```diff
 src/cli.ts
  // cli.ts lets you invoke the agent loop from the command line
-- 
+ // cli.ts 讓你可以從命令列啟動 agent loop
+ 
 +import { humanlayer } from "humanlayer";
  import { agentLoop, Thread, Event } from "../src/agent";
-
+ 
 -
 -
  export async function cli() {
      // Get command line arguments, skipping the first two (node and script name)
-
+     // 取得命令列參數，略過前兩個（node 與 script 名稱）
+ 
      // Run the agent loop with the thread
+     // 以該 thread 執行 agent loop
 -    const result = await agentLoop(thread);
 -    let lastEvent = result.events.slice(-1)[0];
 +    let newThread = await agentLoop(thread);
 +    let lastEvent = newThread.events.slice(-1)[0];
-
+ 
 -    while (lastEvent.data.intent === "request_more_information") {
 -        const message = await askHuman(lastEvent.data.message);
 -        thread.events.push({ type: "human_response", data: message });
@@ -2227,12 +2239,13 @@ src/cli.ts
 +        newThread = await agentLoop(thread);
 +        lastEvent = newThread.events.slice(-1)[0];
      }
-
+ 
      // print the final result
+     // 輸出最終結果
      console.log(lastEvent.data.message);
      process.exit(0);
  }
-
+ 
 -async function askHuman(message: string) {
 +async function askHuman(lastEvent: Event): Promise<Event> {
 +    if (process.env.HUMANLAYER_API_KEY) {
@@ -2252,14 +2265,14 @@ src/cli.ts
          });
      });
  }
- 
++
 +export async function askHumanEmail(lastEvent: Event): Promise<Event> {
 +    if (!process.env.HUMANLAYER_EMAIL) {
 +        throw new Error("missing or invalid parameters: HUMANLAYER_EMAIL");
 +    }
 +    const hl = humanlayer({ //reads apiKey from env
 +        // name of this agent
-+        // 讀取 env 中的 apiKey
++        // 此 agent 的名稱
 +        runId: "12fa-cli-agent",
 +        verbose: true,
 +        contactChannel: {
@@ -2273,7 +2286,7 @@ src/cli.ts
 +
 +    if (lastEvent.data.intent === "divide") {
 +        // fetch approval synchronously - this will block until reply
-+        // 同步抓取審批 - 會阻塞直到回覆
++        // 同步取得審批結果 - 這將會阻塞直到收到回覆
 +        const response = await hl.fetchHumanApproval({
 +            spec: {
 +                fn: "divide",
@@ -2304,6 +2317,7 @@ src/cli.ts
 ```
 
 <details>
+
 <summary>skip this step / 跳過此步驟</summary>
 
     cp ./walkthrough/11-cli.ts src/cli.ts
@@ -2356,10 +2370,10 @@ lets implement the `request_more_information` flow as well
 ```diff
 src/cli.ts
      }) 
-
+ 
 +    if (lastEvent.data.intent === "request_more_information") {
 +        // fetch response synchronously - this will block until reply
-+        // 同步抓取回覆 - 會阻塞直到回覆
++        // 同步取得回應 - 這將會阻塞直到收到回覆
 +        const response = await hl.fetchHumanResponse({
 +            spec: {
 +                msg: lastEvent.data.message
@@ -2373,9 +2387,11 @@ src/cli.ts
 +    
      if (lastEvent.data.intent === "divide") {
          // fetch approval synchronously - this will block until reply
+         // 同步取得審批結果 - 這將會阻塞直到收到回覆
 ```
 
 <details>
+
 <summary>skip this step / 跳過此步驟</summary>
 
     cp ./walkthrough/11b-cli.ts src/cli.ts
@@ -2416,7 +2432,7 @@ src/cli.ts
              email: {
                  address: process.env.HUMANLAYER_EMAIL,
 +                // custom email body - jinja
-+                // 自訂 email 內容 - jinja 範本
++                // 自訂 email 內容 - jinja
 +                template: `{% if type == 'request_more_information' %}
 +{{ event.spec.msg }}
 +{% else %}
@@ -2430,6 +2446,7 @@ src/cli.ts
 ```
 
 <details>
+
 <summary>skip this step / 跳過此步驟</summary>
 
     cp ./walkthrough/11c-cli.ts src/cli.ts
@@ -2490,10 +2507,10 @@ src/server.ts
  import { Thread, agentLoop, handleNextStep } from '../src/agent';
  import { ThreadStore } from '../src/state';
 +import { humanlayer } from 'humanlayer';
-
+ 
  const app = express();
  const store = new ThreadStore();
-
+ 
 +const getHumanlayer = () => {
 +    const HUMANLAYER_EMAIL = process.env.HUMANLAYER_EMAIL;
 +    if (!HUMANLAYER_EMAIL) {
@@ -2513,27 +2530,31 @@ src/server.ts
 +}
 +
  // POST /thread - Start new thread
+ // POST /thread - 啟動新 thread
  app.post('/thread', async (req, res) => {
      
      // loop until stop event
+     // 迴圈直到停止事件
 -    const newThread = await agentLoop(thread);
 +    const result = await agentLoop(thread);
-
+ 
 -    store.update(req.params.id, newThread);
 +    store.update(req.params.id, result);
-
+ 
 -    lastEvent = newThread.events[newThread.events.length - 1];
 +    lastEvent = result.events[result.events.length - 1];
      lastEvent.data.response_url = `/thread/${req.params.id}/response`;
-
+ 
      console.log("returning last event from endpoint", lastEvent);
      
 -    res.json(newThread);
 +    res.json(result);
  });
+ 
 ```
 
 <details>
+
 <summary>skip this step / 跳過此步驟</summary>
 
     cp ./walkthrough/12-1-server-init.ts src/server.ts
@@ -2574,12 +2595,13 @@ src/server.ts
  import { ThreadStore } from '../src/state';
 -import { humanlayer } from 'humanlayer';
 +import { humanlayer, V1Beta2HumanContactCompleted } from 'humanlayer';
-
+ 
  const app = express();
      });
  }
 -
  // POST /thread - Start new thread
+ // POST /thread - 啟動新 thread
 -app.post('/thread', async (req, res) => {
 +app.post('/thread', async (req: Request, res: Response) => {
      const thread = new Thread([{
@@ -2591,19 +2613,21 @@ src/server.ts
 -    
 -    store.update(threadId, newThread);
 +    // run agent loop asynchronously, return immediately
-+    // 非同步執行 agent loop，並立即回應
++    // 非同步執行 agent loop，立即回應
 +    Promise.resolve().then(async () => {
 +        const threadId = store.create(thread);
 +        const newThread = await agentLoop(thread);
 +        
 +        store.update(threadId, newThread);
-
+ 
 -    const lastEvent = newThread.events[newThread.events.length - 1];
 -    // If we exited the loop, include the response URL so the client can
+-    // 若我們離開了迴圈，將 response URL 附上，方便 client 推送新訊息
 -    // push a new message onto the thread
+-    // 將新訊息推送到 thread 上
 -    lastEvent.data.response_url = `/thread/${threadId}/response`;
 +        const lastEvent = newThread.events[newThread.events.length - 1];
-
+ 
 -    console.log("returning last event from endpoint", lastEvent);
 -
 -    res.json({ 
@@ -2623,11 +2647,12 @@ src/server.ts
 +            });
 +        }
      });
- 
++
 +    res.json({ status: "processing" });
  });
  
  // GET /thread/:id - Get thread status
+ // GET /thread/:id - 取得 thread 狀態
 -app.get('/thread/:id', (req, res) => {
 +app.get('/thread/:id', (req: Request, res: Response) => {
      const thread = store.get(req.params.id);
@@ -2635,15 +2660,30 @@ src/server.ts
  });
  
 +type WebhookResponse = V1Beta2HumanContactCompleted;
-+
+ 
+-type ApprovalPayload = {
+-    type: "approval";
+-    approved: boolean;
+-    comment?: string;
+-}
 +const handleHumanResponse = async (req: Request, res: Response) => {
-+
+ 
+-type ResponsePayload = {
+-    type: "response";
+-    response: string;
+ }
+ 
+-type Payload = ApprovalPayload | ResponsePayload;
 +app.post('/webhook', async (req: Request, res: Response) => {
 +    console.log("webhook response", req.body);
 +    const response = req.body as WebhookResponse;
-+
+ 
+-// POST /thread/:id/response - Handle clarification response
+-// POST /thread/:id/response - 處理澄清請求的回應
+-app.post('/thread/:id/response', async (req, res) => {
+-    let thread = store.get(req.params.id);
 +    // response is guaranteed to be set on a webhook
-+    // webhook 上會保證有 response
++    // webhook 中的 response 一定有值
 +    const humanResponse: string = response.event.status?.response as string;
 +
 +    const threadId = response.event.spec.state?.thread_id;
@@ -2667,12 +2707,14 @@ src/server.ts
 -        });
 -    } else if (thread.awaitingHumanApproval() && body.type === 'approval' && !body.approved) {
 -        // push feedback onto the thread
+-        // 將回饋推送到 thread 上
 -        thread.events.push({
 -            type: "tool_response",
 -            data: `user denied the operation with feedback: "${body.comment}"`
 -        });
 -    } else if (thread.awaitingHumanApproval() && body.type === 'approval' && body.approved) {
 -        // approved, run the tool, pushing results onto the thread
+-        // 已核准，執行工具，將結果推送到 thread 上
 -        await handleNextStep(lastEvent.data, thread);
 -    } else {
 -        res.status(400).json({
@@ -2687,6 +2729,7 @@ src/server.ts
  
 -    
 -    // loop until stop event
+-    // 迴圈直到停止事件
 -    const result = await agentLoop(thread);
 -
 -    store.update(req.params.id, result);
@@ -2698,9 +2741,11 @@ src/server.ts
 -    
 -    res.json(result);
  });
+ 
 ```
 
 <details>
+
 <summary>skip this step / 跳過此步驟</summary>
 
     cp ./walkthrough/12a-server.ts src/server.ts
@@ -2728,5 +2773,3 @@ __ 現在處理 divide 的審批
 __ now also handle done_for_now
 
 __ 現在也處理 done_for_now
-
-
