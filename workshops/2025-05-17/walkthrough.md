@@ -1802,19 +1802,13 @@ update the server to use the state management
 更新 server，使用狀態管理
 
 - Add thread state management using `ThreadStore`
-
-- 使用 `ThreadStore` 加入 thread 狀態管理
-
 - return thread IDs and response URLs from the /thread endpoint
-
-- 從 /thread 端點回傳 thread IDs 與 response URLs
-
 - implement GET /thread/:id
-
-- 實作 GET /thread/:id
-
 - implement POST /thread/:id/response
 
+- 使用 `ThreadStore` 加入 thread 狀態管理
+- 從 /thread 端點回傳 thread IDs 與 response URLs
+- 實作 GET /thread/:id
 - 實作 POST /thread/:id/response
 
 ```diff
@@ -1933,19 +1927,13 @@ update the server to handle human approvals
 更新 server 以處理人工審批
 
 - Import `handleNextStep` to execute approved actions
-
-- 匯入 `handleNextStep` 以執行已核准的動作
-
 - Add two payload types to distinguish approvals from responses
-
-- 新增兩種 payload 類型以區分 approvals 與 responses
-
 - Handle responses and approvals differently in the endpoint
-
-- 在端點中分別處理 responses 與 approvals
-
 - Show better error messages when things go wrongs
 
+- 匯入 `handleNextStep` 以執行已核准的動作
+- 新增兩種 payload 類型以區分 approvals 與 responses
+- 在端點中分別處理 responses 與 approvals
 - 當錯誤發生時顯示更明確的錯誤訊息
 
 ```diff
@@ -2557,11 +2545,9 @@ next, lets update the /thread endpoint to
 接下來，我們將更新 /thread 端點以：
 
 1. handle requests asynchronously, returning immediately
-
-1. 非同步處理請求，立即回應
-
 2. create a human contact on request_more_information and done_for_now calls
 
+1. 非同步處理請求，立即回應
 2. 在 request_more_information 與 done_for_now 呼叫時建立 human contact
 
 Update the server to be able to handle request_clarification responses
@@ -2569,23 +2555,15 @@ Update the server to be able to handle request_clarification responses
 更新 server，使其能處理 request_clarification 的回應
 
 - remove the old /response endpoint and types
-
-- 移除舊的 /response 端點與類型
-
 - update the /thread endpoint to run processing asynchronously, return immediately
-
-- 更新 /thread 端點，使處理非同步執行並立即回應
-
 - send a state.threadId when requesting human responses
-
-- 在請求人類回覆時送出 state.threadId
-
 - add a handleHumanResponse function to process the human response
-
-- 新增 handleHumanResponse 函式處理人類回應
-
 - add a /webhook endpoint to handle the webhook response
 
+- 移除舊的 /response 端點與類型
+- 更新 /thread 端點，使處理非同步執行並立即回應
+- 在請求人類回覆時送出 state.threadId
+- 新增 handleHumanResponse 函式處理人類回應
 - 新增 /webhook 端點處理 webhook 回應
 
 ```diff
@@ -2750,4 +2728,5 @@ __ 現在處理 divide 的審批
 __ now also handle done_for_now
 
 __ 現在也處理 done_for_now
+
 
