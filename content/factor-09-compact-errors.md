@@ -1,4 +1,4 @@
-[← Back to README](https://github.com/humanlayer/12-factor-agents/blob/main/README.md)
+[← Back to README](https://github.com/RobbinHsu/12-factor-agents/blob/main/README.md)
 
 ### 9. Compact Errors into Context Window
 ### 9. 將錯誤壓縮進 Context Window
@@ -73,17 +73,17 @@ while True:
   }
 }
 ```
-Hitting some consecutive-error-threshold might be a great place to [escalate to a human](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-07-contact-humans-with-tools.md), whether by model decision or via deterministic takeover of the control flow.
+Hitting some consecutive-error-threshold might be a great place to [escalate to a human](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-07-contact-humans-with-tools.md), whether by model decision or via deterministic takeover of the control flow.
 
-達到某個 consecutive-error-threshold，可能就是一個很適合[升級給人類處理](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-07-contact-humans-with-tools.md)的時機，無論是由 model 決定，還是由 deterministic 的 control flow 接手。
+達到某個 consecutive-error-threshold，可能就是一個很適合[升級給人類處理](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-07-contact-humans-with-tools.md)的時機，無論是由 model 決定，還是由 deterministic 的 control flow 接手。
 
-[![195-factor-09-errors](https://github.com/humanlayer/12-factor-agents/blob/main/img/195-factor-09-errors.gif)](https://github.com/user-attachments/assets/cd7ed814-8309-4baf-81a5-9502f91d4043)
+[![195-factor-09-errors](https://github.com/RobbinHsu/12-factor-agents/blob/main/img/195-factor-09-errors.gif)](https://github.com/user-attachments/assets/cd7ed814-8309-4baf-81a5-9502f91d4043)
 
 
 <details>
-<summary>[GIF Version](https://github.com/humanlayer/12-factor-agents/blob/main/img/195-factor-09-errors.gif)</summary>
+<summary>[GIF Version](https://github.com/RobbinHsu/12-factor-agents/blob/main/img/195-factor-09-errors.gif)</summary>
 
-![195-factor-09-errors](https://github.com/humanlayer/12-factor-agents/blob/main/img/195-factor-09-errors.gif)
+![195-factor-09-errors](https://github.com/RobbinHsu/12-factor-agents/blob/main/img/195-factor-09-errors.gif)
 
 </details>
 
@@ -101,12 +101,12 @@ I'm sure you will find that if you do this TOO much, your agent will start to sp
 
 我很確定你會發現，如果你把這件事做得 TOO much，你的 agent 會開始失控打轉，並且一再重複同樣的錯誤。
 
-That's where [factor 8 - own your control flow](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-08-own-your-control-flow.md) and [factor 3 - own your context building](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-03-own-your-context-window.md) come in - you don't need to just put the raw error back on, you can completely restructure how it's represented, remove previous events from the context window, or whatever deterministic thing you find works to get an agent back on track. 
+That's where [factor 8 - own your control flow](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-08-own-your-control-flow.md) and [factor 3 - own your context building](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-03-own-your-context-window.md) come in - you don't need to just put the raw error back on, you can completely restructure how it's represented, remove previous events from the context window, or whatever deterministic thing you find works to get an agent back on track. 
 
-這就是 [factor 8 - own your control flow](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-08-own-your-control-flow.md) 與 [factor 3 - own your context building](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-03-own-your-context-window.md) 發揮作用的地方——你不必只是把原始錯誤直接放回去；你可以徹底重構它的呈現方式、從 context window 中移除先前事件，或做任何你發現能夠把 agent 拉回正軌的 deterministic 處理。
+這就是 [factor 8 - own your control flow](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-08-own-your-control-flow.md) 與 [factor 3 - own your context building](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-03-own-your-context-window.md) 發揮作用的地方——你不必只是把原始錯誤直接放回去；你可以徹底重構它的呈現方式、從 context window 中移除先前事件，或做任何你發現能夠把 agent 拉回正軌的 deterministic 處理。
 
-But the number one way to prevent error spin-outs is to embrace [factor 10 - small, focused agents](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-10-small-focused-agents.md).
+But the number one way to prevent error spin-outs is to embrace [factor 10 - small, focused agents](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-10-small-focused-agents.md).
 
-但要防止 error spin-out，排名第一的方法還是擁抱 [factor 10 - small, focused agents](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-10-small-focused-agents.md)。
+但要防止 error spin-out，排名第一的方法還是擁抱 [factor 10 - small, focused agents](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-10-small-focused-agents.md)。
 
-[← Own Your Control Flow](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-08-own-your-control-flow.md) | [Small Focused Agents →](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-10-small-focused-agents.md)
+[← Own Your Control Flow](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-08-own-your-control-flow.md) | [Small Focused Agents →](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-10-small-focused-agents.md)

@@ -1,4 +1,4 @@
-[← Back to README](https://github.com/humanlayer/12-factor-agents/blob/main/README.md)
+[← Back to README](https://github.com/RobbinHsu/12-factor-agents/blob/main/README.md)
 
 ### 8. Own your control flow
 ### 8. 掌握你自己的 control flow
@@ -7,7 +7,7 @@ If you own your control flow, you can do lots of fun things.
 
 如果你掌握了自己的 control flow，就能做很多很有意思的事。
 
-![180-control-flow](https://github.com/humanlayer/12-factor-agents/blob/main/img/180-control-flow.png)
+![180-control-flow](https://github.com/RobbinHsu/12-factor-agents/blob/main/img/180-control-flow.png)
 
 
 Build your own control structures that make sense for your specific use case. Specifically, certain types of tool calls may be reason to break out of the loop and wait for a response from a human or another long-running task like a training pipeline. You may also want to incorporate custom implementation of:
@@ -16,14 +16,14 @@ Build your own control structures that make sense for your specific use case. Sp
 
 - summarization or caching of tool call results
 - LLM-as-judge on structured output
-- context window compaction or other [memory management](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-03-own-your-context-window.md)
+- context window compaction or other [memory management](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-03-own-your-context-window.md)
 - logging, tracing, and metrics
 - client-side rate limiting
 - durable sleep / pause / "wait for event"
 
 - tool call 結果的 summarization 或 caching
 - 針對 structured output 的 LLM-as-judge
-- context window compaction 或其他 [memory management](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-03-own-your-context-window.md)
+- context window compaction 或其他 [memory management](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-03-own-your-context-window.md)
 - logging、tracing 與 metrics
 - client-side rate limiting
 - durable sleep / pause / 「wait for event」
@@ -113,8 +113,8 @@ Without this level of resumability/granularity, there's no way to review/approve
 3. 給 agent 更大、更有用的權限，然後只能 yolo 地希望它不要搞砸
 
 
-You may notice this is closely related to [factor 5 - unify execution state and business state](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-05-unify-execution-state.md) and [factor 6 - launch/pause/resume with simple APIs](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-06-launch-pause-resume.md), but can be implemented independently.
+You may notice this is closely related to [factor 5 - unify execution state and business state](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-05-unify-execution-state.md) and [factor 6 - launch/pause/resume with simple APIs](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-06-launch-pause-resume.md), but can be implemented independently.
 
-你可能會注意到，這和 [factor 5 - unify execution state and business state](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-05-unify-execution-state.md) 以及 [factor 6 - launch/pause/resume with simple APIs](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-06-launch-pause-resume.md) 關係密切，但它也可以獨立實作。
+你可能會注意到，這和 [factor 5 - unify execution state and business state](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-05-unify-execution-state.md) 以及 [factor 6 - launch/pause/resume with simple APIs](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-06-launch-pause-resume.md) 關係密切，但它也可以獨立實作。
 
-[← Contact Humans With Tools](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-07-contact-humans-with-tools.md) | [Compact Errors →](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-09-compact-errors.md)
+[← Contact Humans With Tools](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-07-contact-humans-with-tools.md) | [Compact Errors →](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-09-compact-errors.md)

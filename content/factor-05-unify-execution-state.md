@@ -1,5 +1,5 @@
-[← Back to README](https://github.com/humanlayer/12-factor-agents/blob/main/README.md)
-[← 返回 README](https://github.com/humanlayer/12-factor-agents/blob/main/README.md)
+[← Back to README](https://github.com/RobbinHsu/12-factor-agents/blob/main/README.md)
+[← 返回 README](https://github.com/RobbinHsu/12-factor-agents/blob/main/README.md)
 
 ### 5. Unify execution state and business state
 ### 5. 統一 execution state 與 business state
@@ -26,12 +26,12 @@ If possible, SIMPLIFY - unify these as much as possible.
 
 如果可以，請盡量 SIMPLIFY——能統一多少就統一多少。
 
-[![155-unify-state](https://github.com/humanlayer/12-factor-agents/blob/main/img/155-unify-state-animation.gif)](https://github.com/user-attachments/assets/e5a851db-f58f-43d8-8b0c-1926c99fc68d)
+[![155-unify-state](https://github.com/RobbinHsu/12-factor-agents/blob/main/img/155-unify-state-animation.gif)](https://github.com/user-attachments/assets/e5a851db-f58f-43d8-8b0c-1926c99fc68d)
 
 <details>
-<summary><a href="https://github.com/humanlayer/12-factor-agents/blob/main/img/155-unify-state-animation.gif">GIF Version</a></summary>
+<summary><a href="https://github.com/RobbinHsu/12-factor-agents/blob/main/img/155-unify-state-animation.gif">GIF Version</a></summary>
 
-![155-unify-state](https://github.com/humanlayer/12-factor-agents/blob/main/img/155-unify-state-animation.gif)
+![155-unify-state](https://github.com/RobbinHsu/12-factor-agents/blob/main/img/155-unify-state-animation.gif)
 
 </details>
 
@@ -39,9 +39,9 @@ In reality, you can engineer your application so that you can infer all executio
 
 實際上，你可以把 application 設計成：所有 execution state 都能從 context window 中推導出來。在許多情況下，execution state（current step、waiting status 等）其實只是「到目前為止發生了什麼」的 metadata。
 
-You may have things that can't go in the context window, like session ids, password contexts, etc, but your goal should be to minimize those things. By embracing [factor 3](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-03-own-your-context-window.md) you can control what actually goes into the LLM 
+You may have things that can't go in the context window, like session ids, password contexts, etc, but your goal should be to minimize those things. By embracing [factor 3](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-03-own-your-context-window.md) you can control what actually goes into the LLM 
 
-你可能仍然會有一些無法放進 context window 的東西，例如 session ids、password contexts 等，但你的目標應該是把這類資訊降到最低。透過採用 [factor 3](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-03-own-your-context-window.md)，你就能掌控真正進入 LLM 的內容。
+你可能仍然會有一些無法放進 context window 的東西，例如 session ids、password contexts 等，但你的目標應該是把這類資訊降到最低。透過採用 [factor 3](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-03-own-your-context-window.md)，你就能掌控真正進入 LLM 的內容。
 
 This approach has several benefits:
 
@@ -63,5 +63,5 @@ This approach has several benefits:
 6. **Forking**：只要複製 thread 的某個子集合到新的 context／state ID，就能在任意節點分叉
 7. **Human Interfaces and Observability**：可以很輕鬆地把 thread 轉成人類可讀的 markdown，或更豐富的 Web app UI
 
-[← Tools Are Structured Outputs](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-04-tools-are-structured-outputs.md) | [Launch/Pause/Resume →](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-06-launch-pause-resume.md)
-[← tools 是結構化輸出](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-04-tools-are-structured-outputs.md) | [啟動／暫停／恢復 →](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-06-launch-pause-resume.md)
+[← Tools Are Structured Outputs](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-04-tools-are-structured-outputs.md) | [Launch/Pause/Resume →](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-06-launch-pause-resume.md)
+[← tools 是結構化輸出](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-04-tools-are-structured-outputs.md) | [啟動／暫停／恢復 →](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-06-launch-pause-resume.md)

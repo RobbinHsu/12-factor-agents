@@ -1,5 +1,5 @@
-[← Back to README](https://github.com/humanlayer/12-factor-agents/blob/main/README.md)
-[← 返回 README](https://github.com/humanlayer/12-factor-agents/blob/main/README.md)
+[← Back to README](https://github.com/RobbinHsu/12-factor-agents/blob/main/README.md)
+[← 返回 README](https://github.com/RobbinHsu/12-factor-agents/blob/main/README.md)
 
 ### 2. Own your prompts
 ### 2. 掌握你的 prompts
@@ -8,7 +8,7 @@ Don't outsource your prompt engineering to a framework.
 
 不要把你的 prompt engineering 外包給 framework。
 
-![120-own-your-prompts](https://github.com/humanlayer/12-factor-agents/blob/main/img/120-own-your-prompts.png)
+![120-own-your-prompts](https://github.com/RobbinHsu/12-factor-agents/blob/main/img/120-own-your-prompts.png)
 
 By the way, [this is far from novel advice:](https://hamel.dev/blog/posts/prompt/)
 
@@ -82,9 +82,9 @@ function DetermineNextStep(thread: string) -> DoneForNow | ListGitTags | DeployB
 
 （上面的範例使用 [BAML](https://github.com/boundaryml/baml) 來產生 prompt，但你也可以用任何你喜歡的 prompt engineering 工具來做，甚至手動套用 template 也行。）
 
-If the signature looks a little funny, we'll get to that in [factor 4 - tools are just structured outputs](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-04-tools-are-structured-outputs.md)
+If the signature looks a little funny, we'll get to that in [factor 4 - tools are just structured outputs](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-04-tools-are-structured-outputs.md)
 
-如果這個 signature 看起來有點奇怪，我們會在 [factor 4 - tools are just structured outputs](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-04-tools-are-structured-outputs.md) 進一步說明。
+如果這個 signature 看起來有點奇怪，我們會在 [factor 4 - tools are just structured outputs](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-04-tools-are-structured-outputs.md) 進一步說明。
 
 ```typescript
 function DetermineNextStep(thread: string) -> DoneForNow | ListGitTags | DeployBackend | DeployFrontend | RequestMoreInformation {
@@ -118,5 +118,5 @@ I don't know what's the best prompt, but I know you want the flexibility to be a
 
 我不知道什麼才是最好的 prompt，但我知道你一定希望自己擁有可以嘗試「所有方法」的彈性。
 
-[← Natural Language To Tool Calls](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-01-natural-language-to-tool-calls.md) | [Own Your Context Window →](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-03-own-your-context-window.md)
-[← 自然語言轉 tool calls](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-01-natural-language-to-tool-calls.md) | [掌握你的 context window →](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-03-own-your-context-window.md)
+[← Natural Language To Tool Calls](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-01-natural-language-to-tool-calls.md) | [Own Your Context Window →](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-03-own-your-context-window.md)
+[← 自然語言轉 tool calls](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-01-natural-language-to-tool-calls.md) | [掌握你的 context window →](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-03-own-your-context-window.md)

@@ -18,10 +18,10 @@ then the final `done_for_now` answer will be printed back to the CLI
 接著再把最後的 `done_for_now` 答案輸出回 CLI。
 
 While contrived, this is a great example of the flexibility you get from
-[factor 7 - contact humans with tools](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-7-contact-humans-with-tools.md)
+[factor 7 - contact humans with tools](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-7-contact-humans-with-tools.md)
 
 雖然這樣的例子有點刻意，但它很好地展示了
-[factor 7 - contact humans with tools](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-7-contact-humans-with-tools.md) 所帶來的彈性。
+[factor 7 - contact humans with tools](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-7-contact-humans-with-tools.md) 所帶來的彈性。
 
 
 for this section, we'll disable the baml logs. You can optionally enable them if you want to see more details.
@@ -173,7 +173,7 @@ go ahead and respond to the email with some feedback:
 
 接著請回覆該 email，提供一些 feedback：
 
-![reject-email](https://github.com/humanlayer/12-factor-agents/blob/main/workshops/2025-05/walkthrough/11-email-reject.png?raw=true)
+![reject-email](https://github.com/RobbinHsu/12-factor-agents/blob/main/workshops/2025-05/walkthrough/11-email-reject.png?raw=true)
 
 
 you should get another email with an updated attempt based on your feedback!
@@ -184,7 +184,7 @@ You can go ahead and approve this one:
 
 你可以直接核准這一次：
 
-![approve-email](https://github.com/humanlayer/12-factor-agents/blob/main/workshops/2025-05/walkthrough/11-email-approve.png?raw=true)
+![approve-email](https://github.com/RobbinHsu/12-factor-agents/blob/main/workshops/2025-05/walkthrough/11-email-approve.png?raw=true)
 
 
 and your final output will look like
@@ -299,7 +299,7 @@ you should see a slightly different email with the custom template
 
 你應該會看到一封使用自訂 template、略有不同的 email。
 
-![custom-template-email](https://github.com/humanlayer/12-factor-agents/blob/main/workshops/2025-05/walkthrough/11-email-custom.png?raw=true)
+![custom-template-email](https://github.com/RobbinHsu/12-factor-agents/blob/main/workshops/2025-05/walkthrough/11-email-custom.png?raw=true)
 
 feel free to run with the flow and then you can try updating the template to your liking
 

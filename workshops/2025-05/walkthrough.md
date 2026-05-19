@@ -1235,9 +1235,9 @@ with reasoning steps.
 在這一節中，我們會探討如何透過推理步驟
 自訂 agent 的 prompt。
 
-this is core to [factor 2 - own your prompts](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-2-own-your-prompts.md)
+this is core to [factor 2 - own your prompts](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-2-own-your-prompts.md)
 
-這是 [factor 2 - own your prompts](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-2-own-your-prompts.md) 的核心內容。
+這是 [factor 2 - own your prompts](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-2-own-your-prompts.md) 的核心內容。
 
 there's a deep dive on reasoning on AI That Works [reasoning models versus reasoning steps](https://github.com/hellovai/ai-that-works/tree/main/2025-04-07-reasoning-models-vs-prompts)
 
@@ -1316,9 +1316,9 @@ of the agent.
 
 在這一節中，我們會探討如何自訂 agent 的 context window。
 
-this is core to [factor 3 - own your context window](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-3-own-your-context-window.md)
+this is core to [factor 3 - own your context window](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-3-own-your-context-window.md)
 
-這是 [factor 3 - own your context window](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-3-own-your-context-window.md) 的核心內容。
+這是 [factor 3 - own your context window](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-3-own-your-context-window.md) 的核心內容。
 
 
 update the agent to pretty-print the Context window for the model
@@ -2103,10 +2103,10 @@ then the final `done_for_now` answer will be printed back to the CLI
 最後再把 `done_for_now` 的結果輸出回 CLI。
 
 While contrived, this is a great example of the flexibility you get from
-[factor 7 - contact humans with tools](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-7-contact-humans-with-tools.md)
+[factor 7 - contact humans with tools](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-7-contact-humans-with-tools.md)
 
 雖然這個例子有點刻意，但它非常適合用來展示你能從
-[factor 7 - contact humans with tools](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-7-contact-humans-with-tools.md)
+[factor 7 - contact humans with tools](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-7-contact-humans-with-tools.md)
 獲得的彈性。
 
 for this section, we'll disable the baml logs. You can optionally enable them if you want to see more details.
@@ -2259,7 +2259,7 @@ go ahead and respond to the email with some feedback:
 
 接著請直接回覆那封 email，提供一些 feedback：
 
-![reject-email](https://github.com/humanlayer/12-factor-agents/blob/main/workshops/2025-05/walkthrough/11-email-reject.png?raw=true)
+![reject-email](https://github.com/RobbinHsu/12-factor-agents/blob/main/workshops/2025-05/walkthrough/11-email-reject.png?raw=true)
 
 you should get another email with an updated attempt based on your feedback!
 
@@ -2269,7 +2269,7 @@ You can go ahead and approve this one:
 
 你現在可以核准這一個：
 
-![approve-email](https://github.com/humanlayer/12-factor-agents/blob/main/workshops/2025-05/walkthrough/11-email-approve.png?raw=true)
+![approve-email](https://github.com/RobbinHsu/12-factor-agents/blob/main/workshops/2025-05/walkthrough/11-email-approve.png?raw=true)
 
 and your final output will look like
 
@@ -2379,7 +2379,7 @@ you should see a slightly different email with the custom template
 
 你應該會看到一封套用了自訂 template、內容稍有不同的 email。
 
-![custom-template-email](https://github.com/humanlayer/12-factor-agents/blob/main/workshops/2025-05/walkthrough/11-email-custom.png?raw=true)
+![custom-template-email](https://github.com/RobbinHsu/12-factor-agents/blob/main/workshops/2025-05/walkthrough/11-email-custom.png?raw=true)
 
 feel free to run with the flow and then you can try updating the template to your liking
 
@@ -2412,12 +2412,12 @@ polling until the human response if received.
 我們都會卡在一個迴圈裡，不斷 polling，直到收到人類的回應為止。
 
 That's obviously not ideal, especially for production workloads,
-so in this section we'll implement [factor 6 - launch / pause / resume with simple APIs](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-6-launch-pause-resume.md)
+so in this section we'll implement [factor 6 - launch / pause / resume with simple APIs](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-6-launch-pause-resume.md)
 by updating the server to end processing after contacting a human, and use webhooks to receive the results. 
 
 這顯然不是理想做法，尤其對 production workloads 來說更是如此，
 所以在這一節中，我們會透過更新 server，讓它在聯絡真人之後先結束處理，
-並使用 webhooks 接收結果，藉此實作 [factor 6 - launch / pause / resume with simple APIs](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-6-launch-pause-resume.md)。
+並使用 webhooks 接收結果，藉此實作 [factor 6 - launch / pause / resume with simple APIs](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-6-launch-pause-resume.md)。
 
 add code to initialize humanlayer in the server
 

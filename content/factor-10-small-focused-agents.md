@@ -1,4 +1,4 @@
-[← Back to README](https://github.com/humanlayer/12-factor-agents/blob/main/README.md)
+[← Back to README](https://github.com/RobbinHsu/12-factor-agents/blob/main/README.md)
 
 ### 10. Small, Focused Agents
 ### 10. 小而聚焦的 Agents
@@ -7,7 +7,7 @@ Rather than building monolithic agents that try to do everything, build small, f
 
 與其打造什麼都想做的 monolithic agents，不如建立小而聚焦、把單一事情做好的 agents。Agents 只是更大、而且大多為 deterministic 的系統中的一種 building block。
 
-![1a0-small-focused-agents](https://github.com/humanlayer/12-factor-agents/blob/main/img/1a0-small-focused-agents.png)
+![1a0-small-focused-agents](https://github.com/RobbinHsu/12-factor-agents/blob/main/img/1a0-small-focused-agents.png)
 
 The key insight here is about LLM limitations: the bigger and more complex a task is, the more steps it will take, which means a longer context window. As context grows, LLMs are more likely to get lost or lose focus. By keeping agents focused on specific domains with 3-10, maybe 20 steps max, we keep context windows manageable and LLM performance high.
 
@@ -44,12 +44,12 @@ tl;dr yes. As agents and LLMs improve, they **might** naturally expand to be abl
 
 簡短來說：需要。隨著 agents 和 LLMs 進步，它們**也許**自然會擴展到能處理更長的 context windows，這代表它們能處理更大 DAG 中的更多部分。這種小而聚焦的方法，能確保你**今天**就得到成果，同時也為未來逐步擴大 agent scope 做好準備，前提是 LLM context windows 會變得越來越可靠。（如果你以前重構過大型 deterministic code bases，你現在大概正在點頭。）
 
-[![gif](https://github.com/humanlayer/12-factor-agents/blob/main/img/1a5-agent-scope-grow.gif)](https://github.com/user-attachments/assets/0cd3f52c-046e-4d5e-bab4-57657157c82f
+[![gif](https://github.com/RobbinHsu/12-factor-agents/blob/main/img/1a5-agent-scope-grow.gif)](https://github.com/user-attachments/assets/0cd3f52c-046e-4d5e-bab4-57657157c82f
 )
 
 <details>
-<summary><a href="https://github.com/humanlayer/12-factor-agents/blob/main/img/1a5-agent-scope-grow.gif">GIF Version</a></summary>
-![gif](https://github.com/humanlayer/12-factor-agents/blob/main/img/1a5-agent-scope-grow.gif)
+<summary><a href="https://github.com/RobbinHsu/12-factor-agents/blob/main/img/1a5-agent-scope-grow.gif">GIF Version</a></summary>
+![gif](https://github.com/RobbinHsu/12-factor-agents/blob/main/img/1a5-agent-scope-grow.gif)
 </details>
 
 Being intentional about size/scope of agents, and only growing in ways that allow you to maintain quality, is key here. As the [team that built NotebookLM put it](https://open.substack.com/pub/swyx/p/notebooklm?selection=08e1187c-cfee-4c63-93c9-71216640a5f8&utm_campaign=post-share-selection&utm_medium=web):
@@ -64,4 +64,4 @@ Regardless of where that boundary is, if you can find that boundary and get it r
 
 不管那條邊界在哪裡，只要你能找到它，並且持續穩定地把它用對，你就能打造出神奇的體驗。這裡有很多護城河可以建立，但一如往常，它們都需要紮實的 engineering rigor。
 
-[← Compact Errors](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-09-compact-errors.md) | [Trigger From Anywhere →](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-11-trigger-from-anywhere.md)
+[← Compact Errors](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-09-compact-errors.md) | [Trigger From Anywhere →](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-11-trigger-from-anywhere.md)

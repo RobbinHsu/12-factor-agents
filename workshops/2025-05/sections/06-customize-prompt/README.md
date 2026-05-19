@@ -7,9 +7,9 @@ with reasoning steps.
 在本章節中，我們會探討如何透過 reasoning steps
 自訂 agent 的 prompt。
 
-this is core to [factor 2 - own your prompts](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-2-own-your-prompts.md)
+this is core to [factor 2 - own your prompts](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-2-own-your-prompts.md)
 
-這是 [factor 2 - own your prompts](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-2-own-your-prompts.md) 的核心內容。
+這是 [factor 2 - own your prompts](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-2-own-your-prompts.md) 的核心內容。
 
 there's a deep dive on reasoning on AI That Works [reasoning models versus reasoning steps](https://github.com/hellovai/ai-that-works/tree/main/2025-04-07-reasoning-models-vs-prompts)
 

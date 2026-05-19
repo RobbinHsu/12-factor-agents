@@ -27,8 +27,8 @@ Deep Dive"></a>
 > Missed the AI Engineer World's Fair? [Catch the talk here](https://www.youtube.com/watch?v=8kMaTybvDUw)
 > 錯過 AI Engineer World's Fair 了嗎？[點此觀看演講](https://www.youtube.com/watch?v=8kMaTybvDUw)
 >
-> Looking for Context Engineering? [Jump straight to factor 3](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-03-own-your-context-window.md)
-> 想找 Context Engineering？[直接跳到 factor 3](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-03-own-your-context-window.md)
+> Looking for Context Engineering? [Jump straight to factor 3](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-03-own-your-context-window.md)
+> 想找 Context Engineering？[直接跳到 factor 3](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-03-own-your-context-window.md)
 >
 > Want to contribute to `npx/uvx create-12-factor-agent` - check out [the discussion thread](https://github.com/humanlayer/12-factor-agents/discussions/61)
 > 想為 `npx/uvx create-12-factor-agent` 做出貢獻嗎？請查看[討論串](https://github.com/humanlayer/12-factor-agents/discussions/61)
@@ -78,54 +78,54 @@ Welcome to 12-factor agents. As every Chicago mayor since Daley has consistently
 ## The Short Version: The 12 Factors
 ## 短版摘要：12 Factors
 
-Even if LLMs [continue to get exponentially more powerful](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-10-small-focused-agents.md#what-if-llms-get-smarter), there will be core engineering techniques that make LLM-powered software more reliable, more scalable, and easier to maintain.
+Even if LLMs [continue to get exponentially more powerful](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-10-small-focused-agents.md#what-if-llms-get-smarter), there will be core engineering techniques that make LLM-powered software more reliable, more scalable, and easier to maintain.
 
-即使 LLMs [持續以指數級速度變得更強](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-10-small-focused-agents.md#what-if-llms-get-smarter)，仍然會有一些核心工程技巧，能讓 LLM-powered software 更可靠、更可擴充，也更容易維護。
+即使 LLMs [持續以指數級速度變得更強](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-10-small-focused-agents.md#what-if-llms-get-smarter)，仍然會有一些核心工程技巧，能讓 LLM-powered software 更可靠、更可擴充，也更容易維護。
 
-- [How We Got Here: A Brief History of Software](https://github.com/humanlayer/12-factor-agents/blob/main/content/brief-history-of-software.md)
-- [Factor 1: Natural Language to Tool Calls](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-01-natural-language-to-tool-calls.md)
-- [Factor 2: Own your prompts](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-02-own-your-prompts.md)
-- [Factor 3: Own your context window](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-03-own-your-context-window.md)
-- [Factor 4: Tools are just structured outputs](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-04-tools-are-structured-outputs.md)
-- [Factor 5: Unify execution state and business state](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-05-unify-execution-state.md)
-- [Factor 6: Launch/Pause/Resume with simple APIs](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-06-launch-pause-resume.md)
-- [Factor 7: Contact humans with tool calls](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-07-contact-humans-with-tools.md)
-- [Factor 8: Own your control flow](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-08-own-your-control-flow.md)
-- [Factor 9: Compact Errors into Context Window](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-09-compact-errors.md)
-- [Factor 10: Small, Focused Agents](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-10-small-focused-agents.md)
-- [Factor 11: Trigger from anywhere, meet users where they are](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-11-trigger-from-anywhere.md)
-- [Factor 12: Make your agent a stateless reducer](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-12-stateless-reducer.md)
+- [How We Got Here: A Brief History of Software](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/brief-history-of-software.md)
+- [Factor 1: Natural Language to Tool Calls](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-01-natural-language-to-tool-calls.md)
+- [Factor 2: Own your prompts](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-02-own-your-prompts.md)
+- [Factor 3: Own your context window](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-03-own-your-context-window.md)
+- [Factor 4: Tools are just structured outputs](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-04-tools-are-structured-outputs.md)
+- [Factor 5: Unify execution state and business state](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-05-unify-execution-state.md)
+- [Factor 6: Launch/Pause/Resume with simple APIs](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-06-launch-pause-resume.md)
+- [Factor 7: Contact humans with tool calls](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-07-contact-humans-with-tools.md)
+- [Factor 8: Own your control flow](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-08-own-your-control-flow.md)
+- [Factor 9: Compact Errors into Context Window](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-09-compact-errors.md)
+- [Factor 10: Small, Focused Agents](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-10-small-focused-agents.md)
+- [Factor 11: Trigger from anywhere, meet users where they are](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-11-trigger-from-anywhere.md)
+- [Factor 12: Make your agent a stateless reducer](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-12-stateless-reducer.md)
 
-- [我們如何走到這裡：Software 簡史](https://github.com/humanlayer/12-factor-agents/blob/main/content/brief-history-of-software.md)
-- [Factor 1：自然語言轉 tool calls](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-01-natural-language-to-tool-calls.md)
-- [Factor 2：掌握你的 prompts](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-02-own-your-prompts.md)
-- [Factor 3：掌握你的 context window](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-03-own-your-context-window.md)
-- [Factor 4：Tools 只是 structured outputs](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-04-tools-are-structured-outputs.md)
-- [Factor 5：統一 execution state 與 business state](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-05-unify-execution-state.md)
-- [Factor 6：用簡單 API 進行 Launch/Pause/Resume](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-06-launch-pause-resume.md)
-- [Factor 7：用 tool calls 聯繫人類](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-07-contact-humans-with-tools.md)
-- [Factor 8：掌握你的 control flow](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-08-own-your-control-flow.md)
-- [Factor 9：將 Errors 壓縮進 Context Window](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-09-compact-errors.md)
-- [Factor 10：小而專注的 Agents](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-10-small-focused-agents.md)
-- [Factor 11：從任何地方觸發，在使用者所在之處與他們相遇](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-11-trigger-from-anywhere.md)
-- [Factor 12：讓你的 agent 成為 stateless reducer](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-12-stateless-reducer.md)
+- [我們如何走到這裡：Software 簡史](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/brief-history-of-software.md)
+- [Factor 1：自然語言轉 tool calls](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-01-natural-language-to-tool-calls.md)
+- [Factor 2：掌握你的 prompts](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-02-own-your-prompts.md)
+- [Factor 3：掌握你的 context window](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-03-own-your-context-window.md)
+- [Factor 4：Tools 只是 structured outputs](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-04-tools-are-structured-outputs.md)
+- [Factor 5：統一 execution state 與 business state](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-05-unify-execution-state.md)
+- [Factor 6：用簡單 API 進行 Launch/Pause/Resume](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-06-launch-pause-resume.md)
+- [Factor 7：用 tool calls 聯繫人類](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-07-contact-humans-with-tools.md)
+- [Factor 8：掌握你的 control flow](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-08-own-your-control-flow.md)
+- [Factor 9：將 Errors 壓縮進 Context Window](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-09-compact-errors.md)
+- [Factor 10：小而專注的 Agents](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-10-small-focused-agents.md)
+- [Factor 11：從任何地方觸發，在使用者所在之處與他們相遇](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-11-trigger-from-anywhere.md)
+- [Factor 12：讓你的 agent 成為 stateless reducer](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-12-stateless-reducer.md)
 
 ### Visual Nav
 ### 視覺導覽
 
 |    |    |    |
 |----|----|-----|
-|[![factor 1](https://github.com/humanlayer/12-factor-agents/blob/main/img/110-natural-language-tool-calls.png)](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-01-natural-language-to-tool-calls.md) | [![factor 2](https://github.com/humanlayer/12-factor-agents/blob/main/img/120-own-your-prompts.png)](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-02-own-your-prompts.md) | [![factor 3](https://github.com/humanlayer/12-factor-agents/blob/main/img/130-own-your-context-building.png)](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-03-own-your-context-window.md) |
-|[![factor 4](https://github.com/humanlayer/12-factor-agents/blob/main/img/140-tools-are-just-structured-outputs.png)](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-04-tools-are-structured-outputs.md) | [![factor 5](https://github.com/humanlayer/12-factor-agents/blob/main/img/150-unify-state.png)](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-05-unify-execution-state.md) | [![factor 6](https://github.com/humanlayer/12-factor-agents/blob/main/img/160-pause-resume-with-simple-apis.png)](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-06-launch-pause-resume.md) |
-| [![factor 7](https://github.com/humanlayer/12-factor-agents/blob/main/img/170-contact-humans-with-tools.png)](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-07-contact-humans-with-tools.md) | [![factor 8](https://github.com/humanlayer/12-factor-agents/blob/main/img/180-control-flow.png)](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-08-own-your-control-flow.md) | [![factor 9](https://github.com/humanlayer/12-factor-agents/blob/main/img/190-factor-9-errors-static.png)](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-09-compact-errors.md) |
-| [![factor 10](https://github.com/humanlayer/12-factor-agents/blob/main/img/1a0-small-focused-agents.png)](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-10-small-focused-agents.md) | [![factor 11](https://github.com/humanlayer/12-factor-agents/blob/main/img/1b0-trigger-from-anywhere.png)](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-11-trigger-from-anywhere.md) | [![factor 12](https://github.com/humanlayer/12-factor-agents/blob/main/img/1c0-stateless-reducer.png)](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-12-stateless-reducer.md) |
+|[![factor 1](https://github.com/RobbinHsu/12-factor-agents/blob/main/img/110-natural-language-tool-calls.png)](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-01-natural-language-to-tool-calls.md) | [![factor 2](https://github.com/RobbinHsu/12-factor-agents/blob/main/img/120-own-your-prompts.png)](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-02-own-your-prompts.md) | [![factor 3](https://github.com/RobbinHsu/12-factor-agents/blob/main/img/130-own-your-context-building.png)](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-03-own-your-context-window.md) |
+|[![factor 4](https://github.com/RobbinHsu/12-factor-agents/blob/main/img/140-tools-are-just-structured-outputs.png)](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-04-tools-are-structured-outputs.md) | [![factor 5](https://github.com/RobbinHsu/12-factor-agents/blob/main/img/150-unify-state.png)](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-05-unify-execution-state.md) | [![factor 6](https://github.com/RobbinHsu/12-factor-agents/blob/main/img/160-pause-resume-with-simple-apis.png)](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-06-launch-pause-resume.md) |
+| [![factor 7](https://github.com/RobbinHsu/12-factor-agents/blob/main/img/170-contact-humans-with-tools.png)](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-07-contact-humans-with-tools.md) | [![factor 8](https://github.com/RobbinHsu/12-factor-agents/blob/main/img/180-control-flow.png)](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-08-own-your-control-flow.md) | [![factor 9](https://github.com/RobbinHsu/12-factor-agents/blob/main/img/190-factor-9-errors-static.png)](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-09-compact-errors.md) |
+| [![factor 10](https://github.com/RobbinHsu/12-factor-agents/blob/main/img/1a0-small-focused-agents.png)](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-10-small-focused-agents.md) | [![factor 11](https://github.com/RobbinHsu/12-factor-agents/blob/main/img/1b0-trigger-from-anywhere.png)](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-11-trigger-from-anywhere.md) | [![factor 12](https://github.com/RobbinHsu/12-factor-agents/blob/main/img/1c0-stateless-reducer.png)](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-12-stateless-reducer.md) |
 
 ## How we got here
 ## 我們如何走到這裡
 
-For a deeper dive on my agent journey and what led us here, check out [A Brief History of Software](https://github.com/humanlayer/12-factor-agents/blob/main/content/brief-history-of-software.md) - a quick summary here:
+For a deeper dive on my agent journey and what led us here, check out [A Brief History of Software](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/brief-history-of-software.md) - a quick summary here:
 
-如果你想更深入了解我的 agent 旅程，以及我們如何走到這一步，請閱讀 [A Brief History of Software](https://github.com/humanlayer/12-factor-agents/blob/main/content/brief-history-of-software.md)；以下先給你一個快速摘要：
+如果你想更深入了解我的 agent 旅程，以及我們如何走到這一步，請閱讀 [A Brief History of Software](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/brief-history-of-software.md)；以下先給你一個快速摘要：
 
 ### The promise of agents
 ### Agents 的承諾
@@ -134,7 +134,7 @@ We're gonna talk a lot about Directed Graphs (DGs) and their Acyclic friends, DA
 
 我們會大量談到 Directed Graphs（DGs）以及它們的無環朋友 DAGs。先從一件事開始：嗯……software 本身就是一張 directed graph。這也是為什麼過去我們常用流程圖來表示程式。
 
-![010-software-dag](https://github.com/humanlayer/12-factor-agents/blob/main/img/010-software-dag.png)
+![010-software-dag](https://github.com/RobbinHsu/12-factor-agents/blob/main/img/010-software-dag.png)
 
 ### From code to DAGs
 ### 從 code 到 DAGs
@@ -143,7 +143,7 @@ Around 20 years ago, we started to see DAG orchestrators become popular. We're t
 
 大約 20 年前，DAG orchestrators 開始流行起來。我們說的是像 [Airflow](https://airflow.apache.org/)、[Prefect](https://www.prefect.io/) 這些經典工具，還有一些前身，以及較新的工具，例如 [dagster](https://dagster.io/)、[inggest](https://www.inngest.com/)、[windmill](https://www.windmill.dev/)。它們遵循相同的 graph 模式，同時額外帶來 observability、modularity、retries、administration 等優勢。
 
-![015-dag-orchestrators](https://github.com/humanlayer/12-factor-agents/blob/main/img/015-dag-orchestrators.png)
+![015-dag-orchestrators](https://github.com/RobbinHsu/12-factor-agents/blob/main/img/015-dag-orchestrators.png)
 
 ### The promise of agents
 ### Agents 的承諾
@@ -152,13 +152,13 @@ I'm not the first [person to say this](https://youtu.be/Dc99-zTMyMg?si=bcT0hIwWi
 
 我不是第一個[這樣說的人](https://youtu.be/Dc99-zTMyMg?si=bcT0hIwWij2mR-40&t=73)，但當我開始學習 agents 時，最大的體會就是：你可以把 DAG 丟掉。不必再由 software engineers 為每個步驟與 edge case 寫程式，而是可以給 agent 一個目標與一組 transitions：
 
-![025-agent-dag](https://github.com/humanlayer/12-factor-agents/blob/main/img/025-agent-dag.png)
+![025-agent-dag](https://github.com/RobbinHsu/12-factor-agents/blob/main/img/025-agent-dag.png)
 
 And let the LLM make decisions in real time to figure out the path
 
 然後讓 LLM 即時做決策，找出前進路徑。
 
-![026-agent-dag-lines](https://github.com/humanlayer/12-factor-agents/blob/main/img/026-agent-dag-lines.png)
+![026-agent-dag-lines](https://github.com/RobbinHsu/12-factor-agents/blob/main/img/026-agent-dag-lines.png)
 
 The promise here is that you write less software, you just give the LLM the "edges" of the graph and let it figure out the nodes. You can recover from errors, you can write less code, and you may find that LLMs find novel solutions to problems.
 
@@ -208,12 +208,12 @@ Here's a multi-step example:
 
 以下是一個多步驟範例：
 
-[![027-agent-loop-animation](https://github.com/humanlayer/12-factor-agents/blob/main/img/027-agent-loop-animation.gif)](https://github.com/user-attachments/assets/3beb0966-fdb1-4c12-a47f-ed4e8240f8fd)
+[![027-agent-loop-animation](https://github.com/RobbinHsu/12-factor-agents/blob/main/img/027-agent-loop-animation.gif)](https://github.com/user-attachments/assets/3beb0966-fdb1-4c12-a47f-ed4e8240f8fd)
 
 <details>
-<summary><a href="https://github.com/humanlayer/12-factor-agents/blob/main/img/027-agent-loop-animation.gif">GIF Version</a></summary>
+<summary><a href="https://github.com/RobbinHsu/12-factor-agents/blob/main/img/027-agent-loop-animation.gif">GIF Version</a></summary>
 
-![027-agent-loop-animation](https://github.com/humanlayer/12-factor-agents/blob/main/img/027-agent-loop-animation.gif)
+![027-agent-loop-animation](https://github.com/RobbinHsu/12-factor-agents/blob/main/img/027-agent-loop-animation.gif)
 
 </details>
 
@@ -301,40 +301,40 @@ After digging through hundreds of AI libriaries and working with dozens of found
 ## 12 Factors（再次列出）
 
 
-- [How We Got Here: A Brief History of Software](https://github.com/humanlayer/12-factor-agents/blob/main/content/brief-history-of-software.md)
-- [Factor 1: Natural Language to Tool Calls](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-01-natural-language-to-tool-calls.md)
-- [Factor 2: Own your prompts](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-02-own-your-prompts.md)
-- [Factor 3: Own your context window](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-03-own-your-context-window.md)
-- [Factor 4: Tools are just structured outputs](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-04-tools-are-structured-outputs.md)
-- [Factor 5: Unify execution state and business state](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-05-unify-execution-state.md)
-- [Factor 6: Launch/Pause/Resume with simple APIs](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-06-launch-pause-resume.md)
-- [Factor 7: Contact humans with tool calls](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-07-contact-humans-with-tools.md)
-- [Factor 8: Own your control flow](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-08-own-your-control-flow.md)
-- [Factor 9: Compact Errors into Context Window](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-09-compact-errors.md)
-- [Factor 10: Small, Focused Agents](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-10-small-focused-agents.md)
-- [Factor 11: Trigger from anywhere, meet users where they are](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-11-trigger-from-anywhere.md)
-- [Factor 12: Make your agent a stateless reducer](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-12-stateless-reducer.md)
+- [How We Got Here: A Brief History of Software](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/brief-history-of-software.md)
+- [Factor 1: Natural Language to Tool Calls](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-01-natural-language-to-tool-calls.md)
+- [Factor 2: Own your prompts](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-02-own-your-prompts.md)
+- [Factor 3: Own your context window](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-03-own-your-context-window.md)
+- [Factor 4: Tools are just structured outputs](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-04-tools-are-structured-outputs.md)
+- [Factor 5: Unify execution state and business state](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-05-unify-execution-state.md)
+- [Factor 6: Launch/Pause/Resume with simple APIs](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-06-launch-pause-resume.md)
+- [Factor 7: Contact humans with tool calls](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-07-contact-humans-with-tools.md)
+- [Factor 8: Own your control flow](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-08-own-your-control-flow.md)
+- [Factor 9: Compact Errors into Context Window](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-09-compact-errors.md)
+- [Factor 10: Small, Focused Agents](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-10-small-focused-agents.md)
+- [Factor 11: Trigger from anywhere, meet users where they are](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-11-trigger-from-anywhere.md)
+- [Factor 12: Make your agent a stateless reducer](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-12-stateless-reducer.md)
 
-- [我們如何走到這裡：Software 簡史](https://github.com/humanlayer/12-factor-agents/blob/main/content/brief-history-of-software.md)
-- [Factor 1：自然語言轉 tool calls](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-01-natural-language-to-tool-calls.md)
-- [Factor 2：掌握你的 prompts](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-02-own-your-prompts.md)
-- [Factor 3：掌握你的 context window](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-03-own-your-context-window.md)
-- [Factor 4：Tools 只是 structured outputs](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-04-tools-are-structured-outputs.md)
-- [Factor 5：統一 execution state 與 business state](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-05-unify-execution-state.md)
-- [Factor 6：用簡單 API 進行 Launch/Pause/Resume](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-06-launch-pause-resume.md)
-- [Factor 7：用 tool calls 聯繫人類](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-07-contact-humans-with-tools.md)
-- [Factor 8：掌握你的 control flow](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-08-own-your-control-flow.md)
-- [Factor 9：將 Errors 壓縮進 Context Window](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-09-compact-errors.md)
-- [Factor 10：小而專注的 Agents](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-10-small-focused-agents.md)
-- [Factor 11：從任何地方觸發，在使用者所在之處與他們相遇](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-11-trigger-from-anywhere.md)
-- [Factor 12：讓你的 agent 成為 stateless reducer](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-12-stateless-reducer.md)
+- [我們如何走到這裡：Software 簡史](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/brief-history-of-software.md)
+- [Factor 1：自然語言轉 tool calls](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-01-natural-language-to-tool-calls.md)
+- [Factor 2：掌握你的 prompts](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-02-own-your-prompts.md)
+- [Factor 3：掌握你的 context window](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-03-own-your-context-window.md)
+- [Factor 4：Tools 只是 structured outputs](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-04-tools-are-structured-outputs.md)
+- [Factor 5：統一 execution state 與 business state](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-05-unify-execution-state.md)
+- [Factor 6：用簡單 API 進行 Launch/Pause/Resume](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-06-launch-pause-resume.md)
+- [Factor 7：用 tool calls 聯繫人類](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-07-contact-humans-with-tools.md)
+- [Factor 8：掌握你的 control flow](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-08-own-your-control-flow.md)
+- [Factor 9：將 Errors 壓縮進 Context Window](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-09-compact-errors.md)
+- [Factor 10：小而專注的 Agents](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-10-small-focused-agents.md)
+- [Factor 11：從任何地方觸發，在使用者所在之處與他們相遇](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-11-trigger-from-anywhere.md)
+- [Factor 12：讓你的 agent 成為 stateless reducer](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-12-stateless-reducer.md)
 
 ## Honorable Mentions / other advice
 ## 特別提及 / 其他建議
 
-- [Factor 13: Pre-fetch all the context you might need](https://github.com/humanlayer/12-factor-agents/blob/main/content/appendix-13-pre-fetch.md)
+- [Factor 13: Pre-fetch all the context you might need](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/appendix-13-pre-fetch.md)
 
-- [Factor 13：預先抓取你可能需要的所有 context](https://github.com/humanlayer/12-factor-agents/blob/main/content/appendix-13-pre-fetch.md)
+- [Factor 13：預先抓取你可能需要的所有 context](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/appendix-13-pre-fetch.md)
 
 ## Related Resources
 ## 相關資源

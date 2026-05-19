@@ -10,12 +10,12 @@ polling until the human response if received.
 持續 polling，直到收到人類回應為止。
 
 That's obviously not ideal, especially for production workloads,
-so in this section we'll implement [factor 6 - launch / pause / resume with simple APIs](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-6-launch-pause-resume.md)
+so in this section we'll implement [factor 6 - launch / pause / resume with simple APIs](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-6-launch-pause-resume.md)
 by updating the server to end processing after contacting a human, and use webhooks to receive the results. 
 
 這顯然不是理想做法，尤其對 production workloads 來說更是如此，
 因此在本章節中，我們會透過更新 server，讓它在聯絡人類後先結束處理，並改用 webhook 接收結果，
-以實作 [factor 6 - launch / pause / resume with simple APIs](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-6-launch-pause-resume.md)。
+以實作 [factor 6 - launch / pause / resume with simple APIs](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-6-launch-pause-resume.md)。
 
 
 add code to initialize humanlayer in the server

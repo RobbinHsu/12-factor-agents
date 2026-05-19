@@ -1,5 +1,5 @@
-[← Back to README](https://github.com/humanlayer/12-factor-agents/blob/main/README.md)
-[← 返回 README](https://github.com/humanlayer/12-factor-agents/blob/main/README.md)
+[← Back to README](https://github.com/RobbinHsu/12-factor-agents/blob/main/README.md)
+[← 返回 README](https://github.com/RobbinHsu/12-factor-agents/blob/main/README.md)
 
 ### 1. Natural Language to Tool Calls 
 ### 1. 自然語言轉 tool calls
@@ -8,7 +8,7 @@ One of the most common patterns in agent building is to convert natural language
 
 在建構 agent 時，最常見的模式之一，就是把自然語言轉成結構化的 tool calls。這是一種強大的模式，能讓你打造出可以對任務進行推理並加以執行的 agents。
 
-![110-natural-language-tool-calls](https://github.com/humanlayer/12-factor-agents/blob/main/img/110-natural-language-tool-calls.png)
+![110-natural-language-tool-calls](https://github.com/RobbinHsu/12-factor-agents/blob/main/img/110-natural-language-tool-calls.png)
 
 This pattern, when applied atomically, is the simple translation of a phrase like
 
@@ -42,9 +42,9 @@ to a structured object that describes a Stripe API call like
 
 **注意**：實際上，stripe API 會再複雜一些；一個[真正會這樣做的 agent](https://github.com/dexhorthy/mailcrew)（[影片](https://www.youtube.com/watch?v=f_cKnoPC_Oo)）會先列出 customers、products、prices 等資訊，才能用正確的 ids 建立這個 payload，或者把那些 ids 直接放進 prompt/context window 中（稍後你會看到，這兩者某種程度上其實差不多！）
 
-From there, deterministic code can pick up the payload and do something with it. (More on this in [factor 3](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-03-own-your-context-window.md))
+From there, deterministic code can pick up the payload and do something with it. (More on this in [factor 3](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-03-own-your-context-window.md))
 
-從這裡開始，deterministic code 就可以接手這個 payload，並據此執行某些操作。（更多內容請見 [factor 3](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-03-own-your-context-window.md)）
+從這裡開始，deterministic code 就可以接手這個 payload，並據此執行某些操作。（更多內容請見 [factor 3](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-03-own-your-context-window.md)）
 
 ```python
 # The LLM takes natural language and returns a structured object
@@ -85,5 +85,5 @@ else:  # the model didn't call a tool we know about
 
 **不過**，這裡我們會先跳過那一步，留到另一個 factor 再談；至於你是否也想把它納入，則由你決定！
 
-[← How We Got Here](https://github.com/humanlayer/12-factor-agents/blob/main/content/brief-history-of-software.md) | [Own Your Prompts →](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-02-own-your-prompts.md)
-[← 我們如何走到這裡](https://github.com/humanlayer/12-factor-agents/blob/main/content/brief-history-of-software.md) | [掌握你的 prompts →](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-02-own-your-prompts.md)
+[← How We Got Here](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/brief-history-of-software.md) | [Own Your Prompts →](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-02-own-your-prompts.md)
+[← 我們如何走到這裡](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/brief-history-of-software.md) | [掌握你的 prompts →](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-02-own-your-prompts.md)

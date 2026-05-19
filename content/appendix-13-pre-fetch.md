@@ -163,8 +163,8 @@ Overall:
 >
 > #### 如果你已經知道 model 會想呼叫哪些 tools，那就直接以 DETERMINISTIC 的方式先呼叫它們，然後把真正困難的部分——也就是如何使用這些輸出——交給 model 處理
 
-Again, AI engineering is all about [Context Engineering](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-03-own-your-context-window.md).
+Again, AI engineering is all about [Context Engineering](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-03-own-your-context-window.md).
 
-再次強調，AI engineering 的核心就是 [Context Engineering](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-03-own-your-context-window.md)。
+再次強調，AI engineering 的核心就是 [Context Engineering](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-03-own-your-context-window.md)。
 
-[← Stateless Reducer](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-12-stateless-reducer.md) | [Further Reading →](https://github.com/humanlayer/12-factor-agents/blob/main/README.md#related-resources)
+[← Stateless Reducer](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-12-stateless-reducer.md) | [Further Reading →](https://github.com/RobbinHsu/12-factor-agents/blob/main/README.md#related-resources)
