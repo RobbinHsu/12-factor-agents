@@ -37,12 +37,12 @@ The pattern is simple:
 這個模式很簡單：
 
 1. LLM outputs structured JSON
-3. Deterministic code executes the appropriate action (like calling an external API)
-4. Results are captured and fed back into the context
-
 1. LLM 輸出結構化 JSON
+3. Deterministic code executes the appropriate action (like calling an external API)
 3. Deterministic code 執行對應的動作（例如呼叫外部 API）
+4. Results are captured and fed back into the context
 4. 將結果擷取後再餵回 context
+
 
 This creates a clean separation between the LLM's decision-making and your application's actions. The LLM decides what to do, but your code controls how it's done. Just because an LLM "called a tool" doesn't mean you have to go execute a specific corresponding function in the same way every time.
 

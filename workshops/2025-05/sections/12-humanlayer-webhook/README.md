@@ -86,10 +86,10 @@ next, lets update the /thread endpoint to
 接著，讓我們更新 `/thread` endpoint，使其能夠：
   
 1. handle requests asynchronously, returning immediately
-2. create a human contact on request_more_information and done_for_now calls
-
 1. 以非同步方式處理請求，並立即回傳
+2. create a human contact on request_more_information and done_for_now calls
 2. 在 `request_more_information` 與 `done_for_now` 呼叫時建立 human contact
+
 
 
 Update the server to be able to handle request_clarification responses
@@ -97,16 +97,16 @@ Update the server to be able to handle request_clarification responses
 更新 server，使其能夠處理 `request_clarification` 回應。
 
 - remove the old /response endpoint and types
-- update the /thread endpoint to run processing asynchronously, return immediately
-- send a state.threadId when requesting human responses
-- add a handleHumanResponse function to process the human response
-- add a /webhook endpoint to handle the webhook response
-
 - 移除舊的 `/response` endpoint 與相關 types
+- update the /thread endpoint to run processing asynchronously, return immediately
 - 更新 `/thread` endpoint，使處理流程以非同步方式執行並立即回傳
+- send a state.threadId when requesting human responses
 - 在請求人類回應時傳送 `state.threadId`
+- add a handleHumanResponse function to process the human response
 - 新增 `handleHumanResponse` 函式以處理人類回應
+- add a /webhook endpoint to handle the webhook response
 - 新增 `/webhook` endpoint 以處理 webhook 回應
+
 
 
 ```diff

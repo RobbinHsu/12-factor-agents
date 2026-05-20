@@ -19,8 +19,8 @@ MCP 和 A2A 還不夠。
 ## 建議事項
 
 - Clients should respect A2H_BASE_URL and A2H_API_KEY environment variables if set, to allow for simple oauth2-based authentication to REST services.
-
 - 如果已設定 `A2H_BASE_URL` 與 `A2H_API_KEY` 環境變數，client 應予以遵循，以支援對 REST 服務進行簡單的 oauth2 驗證。
+
 
 ## Core Protocol 
 ## 核心協定
@@ -33,10 +33,10 @@ The A2H protocol supports two scopes:
 A2H protocol 支援兩個範圍：
 
 - The agent side, APIs consumed by an agent to request human interaction
-- The (Optional) admin side, APIs consumed by an admin or web application to manage humans and their contact channels
-
 - agent 端：由 agent 使用、用於請求人類互動的 API
+- The (Optional) admin side, APIs consumed by an admin or web application to manage humans and their contact channels
 - （可選）admin 端：由 admin 或 web application 使用、用於管理人員及其聯絡管道的 API
+
 
 This separation allows for agents to query and find humans to contact, without exposing the human's contact details to the agent. It is the responsibility of the A2H provider to relay agent requests to the appropriate human via that human's preferred contact channel(s).
 
@@ -107,48 +107,48 @@ A HumanContact represents a request for human interaction. It contains:
 HumanContact 代表一個請求人類互動的請求。它包含：
 
 - `run_id` (string): Unique identifier for the run
-- `call_id` (string): Unique identifier for the contact request
-- `spec` (HumanContactSpec): The specification for the contact request
-- `status` (HumanContactStatus, optional): The current status of the contact request
-
 - `run_id`（string）：此次 run 的唯一識別碼
+- `call_id` (string): Unique identifier for the contact request
 - `call_id`（string）：此次聯絡請求的唯一識別碼
+- `spec` (HumanContactSpec): The specification for the contact request
 - `spec`（HumanContactSpec）：聯絡請求的規格
+- `status` (HumanContactStatus, optional): The current status of the contact request
 - `status`（HumanContactStatus，可選）：聯絡請求的目前狀態
+
 
 The HumanContactSpec contains:
 
 HumanContactSpec 包含：
 
 - `msg` (string): The message to send to the human
-- `subject` (string, optional): Subject of the contact request
-- `channel` (ContactChannel, optional): The channel to use for contact
-- `response_options` (ResponseOption[], optional): Available response options
-- `state` (object, optional): Additional state information
-
 - `msg`（string）：要傳送給人類的訊息
+- `subject` (string, optional): Subject of the contact request
 - `subject`（string，可選）：聯絡請求的主旨
+- `channel` (ContactChannel, optional): The channel to use for contact
 - `channel`（ContactChannel，可選）：要使用的聯絡管道
+- `response_options` (ResponseOption[], optional): Available response options
 - `response_options`（ResponseOption[]，可選）：可用的回應選項
+- `state` (object, optional): Additional state information
 - `state`（object，可選）：額外的狀態資訊
+
 
 The HumanContactStatus contains:
 
 HumanContactStatus 包含：
 
 - `requested_at` (datetime, optional): When the contact was requested
-- `responded_at` (datetime, optional): When the human responded
-- `response` (string, optional): The human's response
-- `response_option_name` (string, optional): Name of the selected response option
-- `slack_message_ts` (string, optional): Slack message timestamp if applicable
-- `failed_validation_details` (object, optional): Details if validation failed
-
 - `requested_at`（datetime，可選）：提出聯絡請求的時間
+- `responded_at` (datetime, optional): When the human responded
 - `responded_at`（datetime，可選）：人類回覆的時間
+- `response` (string, optional): The human's response
 - `response`（string，可選）：人類的回應
+- `response_option_name` (string, optional): Name of the selected response option
 - `response_option_name`（string，可選）：所選回應選項的名稱
+- `slack_message_ts` (string, optional): Slack message timestamp if applicable
 - `slack_message_ts`（string，可選）：若適用，Slack 訊息的時間戳
+- `failed_validation_details` (object, optional): Details if validation failed
 - `failed_validation_details`（object，可選）：驗證失敗時的詳細資訊
+
 
 #### FunctionCall
 #### FunctionCall
@@ -193,54 +193,54 @@ A FunctionCall represents a request for human approval of a function execution. 
 FunctionCall 代表對函式執行請求人類核准的請求。它包含：
 
 - `run_id` (string): Unique identifier for the run
-- `call_id` (string): Unique identifier for the function call
-- `spec` (FunctionCallSpec): The specification for the function call
-- `status` (FunctionCallStatus, optional): The current status of the function call
-
 - `run_id`（string）：此次 run 的唯一識別碼
+- `call_id` (string): Unique identifier for the function call
 - `call_id`（string）：此次函式呼叫的唯一識別碼
+- `spec` (FunctionCallSpec): The specification for the function call
 - `spec`（FunctionCallSpec）：函式呼叫的規格
+- `status` (FunctionCallStatus, optional): The current status of the function call
 - `status`（FunctionCallStatus，可選）：函式呼叫的目前狀態
+
 
 The FunctionCallSpec contains:
 
 FunctionCallSpec 包含：
 
 - `fn` (string): The function to be called
-- `kwargs` (object): The keyword arguments for the function
-- `channel` (ContactChannel, optional): The channel to use for contact
-- `reject_options` (ResponseOption[], optional): Available rejection options
-- `state` (object, optional): Additional state information
-
 - `fn`（string）：要呼叫的函式
+- `kwargs` (object): The keyword arguments for the function
 - `kwargs`（object）：該函式的 keyword arguments
+- `channel` (ContactChannel, optional): The channel to use for contact
 - `channel`（ContactChannel，可選）：要使用的聯絡管道
+- `reject_options` (ResponseOption[], optional): Available rejection options
 - `reject_options`（ResponseOption[]，可選）：可用的拒絕選項
+- `state` (object, optional): Additional state information
 - `state`（object，可選）：額外的狀態資訊
+
 
 The FunctionCallStatus contains:
 
 FunctionCallStatus 包含：
 
 - `requested_at` (datetime, optional): When the approval was requested
-- `responded_at` (datetime, optional): When the human responded
-- `approved` (boolean, optional): Whether the function call was approved
-- `comment` (string, optional): Any comment from the human
-- `user_info` (object, optional): Information about the responding user
-- `slack_context` (object, optional): Slack-specific context
-- `reject_option_name` (string, optional): Name of the selected rejection option
-- `slack_message_ts` (string, optional): Slack message timestamp if applicable
-- `failed_validation_details` (object, optional): Details if validation failed
-
 - `requested_at`（datetime，可選）：提出核准請求的時間
+- `responded_at` (datetime, optional): When the human responded
 - `responded_at`（datetime，可選）：人類回覆的時間
+- `approved` (boolean, optional): Whether the function call was approved
 - `approved`（boolean，可選）：函式呼叫是否已核准
+- `comment` (string, optional): Any comment from the human
 - `comment`（string，可選）：人類提供的任何評論
+- `user_info` (object, optional): Information about the responding user
 - `user_info`（object，可選）：回覆者的資訊
+- `slack_context` (object, optional): Slack-specific context
 - `slack_context`（object，可選）：Slack 專屬的 context
+- `reject_option_name` (string, optional): Name of the selected rejection option
 - `reject_option_name`（string，可選）：所選拒絕選項的名稱
+- `slack_message_ts` (string, optional): Slack message timestamp if applicable
 - `slack_message_ts`（string，可選）：若適用，Slack 訊息的時間戳
+- `failed_validation_details` (object, optional): Details if validation failed
 - `failed_validation_details`（object，可選）：驗證失敗時的詳細資訊
+
 
 #### ContactChannel
 #### ContactChannel

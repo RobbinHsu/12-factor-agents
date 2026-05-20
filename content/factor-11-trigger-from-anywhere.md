@@ -18,11 +18,11 @@ Benefits:
 優點：
 
 - **Meet users where they are**: This helps you build AI applications that feel like real humans, or at the very least, digital coworkers
-- **Outer Loop Agents**: Enable agents to be triggered by non-humans, e.g. events, crons, outages, whatever else. They may work for 5, 20, 90 minutes, but when they get to a critical point, they can contact a human for help, feedback, or approval
-- **High Stakes Tools**: If you're able to quickly loop in a variety of humans, you can give agents access to higher stakes operations like sending external emails, updating production data and more. Maintaining clear standards gets you auditability and confidence in agents that [perform bigger better things](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-10-small-focused-agents.md#what-if-llms-get-smarter)
-
 - **Meet users where they are**：在使用者所在之處與他們互動；這能幫助你打造更像真人、至少也像數位同事的 AI applications
+- **Outer Loop Agents**: Enable agents to be triggered by non-humans, e.g. events, crons, outages, whatever else. They may work for 5, 20, 90 minutes, but when they get to a critical point, they can contact a human for help, feedback, or approval
 - **Outer Loop Agents**：讓 agents 能被非人類觸發，例如 events、crons、outages 或其他來源。它們可能工作 5、20、90 分鐘，但在到達關鍵節點時，可以聯繫人類尋求協助、回饋或核准
+- **High Stakes Tools**: If you're able to quickly loop in a variety of humans, you can give agents access to higher stakes operations like sending external emails, updating production data and more. Maintaining clear standards gets you auditability and confidence in agents that [perform bigger better things](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-10-small-focused-agents.md#what-if-llms-get-smarter)
 - **High Stakes Tools**：如果你能快速把不同的人類拉進流程，就可以讓 agents 取得更高風險的操作權限，例如發送外部 email、更新 production data 等等。維持清楚的標準，能讓你對那些[執行更重大且更有價值工作的](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-10-small-focused-agents.md#what-if-llms-get-smarter) agents 具備 auditability 與信心
+
 
 [← Small Focused Agents](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-10-small-focused-agents.md) | [Stateless Reducer →](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-12-stateless-reducer.md)

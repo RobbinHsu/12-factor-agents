@@ -693,14 +693,14 @@ update the server to use the state management
 更新 server 以使用 state management。
 
 * Add thread state management using `ThreadStore`
-* return thread IDs and response URLs from the /thread endpoint
-* implement GET /thread/:id 
-* implement POST /thread/:id/response
-
 * 使用 `ThreadStore` 加入 thread state management
+* return thread IDs and response URLs from the /thread endpoint
 * 從 `/thread` endpoint 回傳 thread ID 與 response URL
+* implement GET /thread/:id 
 * 實作 `GET /thread/:id`
+* implement POST /thread/:id/response
 * 實作 `POST /thread/:id/response`
+
 
 
     cp ./walkthrough/09-server.ts src/server.ts
@@ -738,14 +738,14 @@ update the server to handle human approvals
 更新 server 以處理 human approvals。
 
 * Import `handleNextStep` to execute approved actions
-* Add two payload types to distinguish approvals from responses
-* Handle responses and approvals differently in the endpoint
-* Show better error messages when things go wrongs
-
 * 匯入 `handleNextStep` 以執行已核准的動作
+* Add two payload types to distinguish approvals from responses
 * 加入兩種 payload type，以區分 approvals 與 responses
+* Handle responses and approvals differently in the endpoint
 * 在 endpoint 中以不同方式處理 responses 與 approvals
+* Show better error messages when things go wrongs
 * 在發生問題時顯示更好的錯誤訊息
+
 
 
     cp ./walkthrough/10-server.ts src/server.ts
@@ -1053,10 +1053,10 @@ next, lets update the /thread endpoint to
 接著，讓我們更新 `/thread` endpoint，使其能夠：
   
 1. handle requests asynchronously, returning immediately
-2. create a human contact on request_more_information and done_for_now calls
-
 1. 以非同步方式處理請求，並立即回傳
+2. create a human contact on request_more_information and done_for_now calls
 2. 在 `request_more_information` 與 `done_for_now` 呼叫時建立 human contact
+
 
 
 Update the server to be able to handle request_clarification responses
@@ -1064,16 +1064,16 @@ Update the server to be able to handle request_clarification responses
 更新 server，使其能夠處理 `request_clarification` 回應。
 
 - remove the old /response endpoint and types
-- update the /thread endpoint to run processing asynchronously, return immediately
-- send a state.threadId when requesting human responses
-- add a handleHumanResponse function to process the human response
-- add a /webhook endpoint to handle the webhook response
-
 - 移除舊的 `/response` endpoint 與相關 types
+- update the /thread endpoint to run processing asynchronously, return immediately
 - 更新 `/thread` endpoint，使處理流程以非同步方式執行並立即回傳
+- send a state.threadId when requesting human responses
 - 在請求人類回應時傳送 `state.threadId`
+- add a handleHumanResponse function to process the human response
 - 新增 `handleHumanResponse` 函式以處理人類回應
+- add a /webhook endpoint to handle the webhook response
 - 新增 `/webhook` endpoint 以處理 webhook 回應
+
 
 
     cp ./walkthrough/12a-server.ts src/server.ts

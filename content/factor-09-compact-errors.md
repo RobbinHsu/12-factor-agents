@@ -92,10 +92,10 @@ Benefits:
 優點：
 
 1. **Self-Healing**: The LLM can read the error message and figure out what to change in a subsequent tool call
-2. **Durable**: The agent can continue to run even if one tool call fails
-
 1. **Self-Healing**：LLM 可以讀取錯誤訊息，並推斷下一次 tool call 應該改變什麼
+2. **Durable**: The agent can continue to run even if one tool call fails
 2. **Durable**：即使某一次 tool call 失敗，agent 仍然可以繼續執行
+
 
 I'm sure you will find that if you do this TOO much, your agent will start to spin out and might repeat the same error over and over again. 
 

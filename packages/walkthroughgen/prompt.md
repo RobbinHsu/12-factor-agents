@@ -186,12 +186,12 @@ update index.ts to use the cli
 ### 輸出目標
 
 - `file`: generates a single markdown file
-- `folder`: creates a set of folders, one for each section
-- `final`: outputs the final project to the current directory
-
 - `file`：產生單一 markdown 檔案
+- `folder`: creates a set of folders, one for each section
 - `folder`：建立一組資料夾，每個 section 對應一個
+- `final`: outputs the final project to the current directory
 - `final`：將最終專案輸出到目前目錄
+
 
 ### Init
 ### 初始化

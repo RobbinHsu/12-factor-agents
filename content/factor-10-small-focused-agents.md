@@ -22,16 +22,16 @@ Benefits of small, focused agents:
 小而聚焦的 agents 的優點：
 
 1. **Manageable Context**: Smaller context windows mean better LLM performance
-2. **Clear Responsibilities**: Each agent has a well-defined scope and purpose
-3. **Better Reliability**: Less chance of getting lost in complex workflows
-4. **Easier Testing**: Simpler to test and validate specific functionality
-5. **Improved Debugging**: Easier to identify and fix issues when they occur
-
 1. **Manageable Context**：較小的 context windows 代表更好的 LLM 表現
+2. **Clear Responsibilities**: Each agent has a well-defined scope and purpose
 2. **Clear Responsibilities**：每個 agent 都有清楚定義的 scope 與 purpose
+3. **Better Reliability**: Less chance of getting lost in complex workflows
 3. **Better Reliability**：在複雜 workflows 中迷失的機率更低
+4. **Easier Testing**: Simpler to test and validate specific functionality
 4. **Easier Testing**：更容易針對特定功能進行測試與驗證
+5. **Improved Debugging**: Easier to identify and fix issues when they occur
 5. **Improved Debugging**：出現問題時更容易定位與修復
+
 
 ### What if LLMs get smarter? 
 ### 如果 LLMs 變得更聰明呢？

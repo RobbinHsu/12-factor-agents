@@ -15,18 +15,18 @@ Build your own control structures that make sense for your specific use case. Sp
 建立真正適合你特定 use case 的 control structures。具體來說，某些類型的 tool calls 可能就是你跳出迴圈、等待人類回覆或等待像 training pipeline 這種長時間任務完成的理由。你可能也會想納入以下自訂實作：
 
 - summarization or caching of tool call results
-- LLM-as-judge on structured output
-- context window compaction or other [memory management](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-03-own-your-context-window.md)
-- logging, tracing, and metrics
-- client-side rate limiting
-- durable sleep / pause / "wait for event"
-
 - tool call 結果的 summarization 或 caching
+- LLM-as-judge on structured output
 - 針對 structured output 的 LLM-as-judge
+- context window compaction or other [memory management](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-03-own-your-context-window.md)
 - context window compaction 或其他 [memory management](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-03-own-your-context-window.md)
+- logging, tracing, and metrics
 - logging、tracing 與 metrics
 - client-side rate limiting
+- client-side rate limiting
+- durable sleep / pause / "wait for event"
 - durable sleep / pause / 「wait for event」
+
 
 
 The below example shows three possible control flow patterns:
@@ -35,12 +35,12 @@ The below example shows three possible control flow patterns:
 
 
 - request_clarification: model asked for more info, break the loop and wait for a response from a human
-- fetch_git_tags: model asked for a list of git tags, fetch the tags, append to context window, and pass straight back to the model
-- deploy_backend: model asked to deploy a backend, this is a high-stakes thing, so break the loop and wait for human approval
-
 - request_clarification：model 要求更多資訊，因此跳出迴圈並等待人類回覆
+- fetch_git_tags: model asked for a list of git tags, fetch the tags, append to context window, and pass straight back to the model
 - fetch_git_tags：model 要求取得 git tags 清單，因此抓取 tags、附加到 context window，然後直接回傳給 model
+- deploy_backend: model asked to deploy a backend, this is a high-stakes thing, so break the loop and wait for human approval
 - deploy_backend：model 要求部署 backend，這是高風險操作，因此跳出迴圈並等待人類核准
+
 
 ```python
 def handle_next_step(thread: Thread):
@@ -105,12 +105,12 @@ Without this level of resumability/granularity, there's no way to review/approve
 沒有這種程度的 resumability / granularity，你就不可能在 tool call 執行之前先完成審查／核准，這意味著：
 
 1. Pause the task in memory while waiting for the long-running thing to complete (think `while...sleep`) and restart it from the beginning if the process is interrupted
-2. Restrict the agent to only low-stakes, low-risk calls like research and summarization
-3. Give the agent access to do bigger, more useful things, and just yolo hope it doesn't screw up
-
 1. 在記憶體中暫停任務，等待長時間執行的工作完成（想像 `while...sleep`），而一旦程序中斷就必須從頭開始
+2. Restrict the agent to only low-stakes, low-risk calls like research and summarization
 2. 把 agent 限制在 research、summarization 這類低風險、低利害關係的 calls
+3. Give the agent access to do bigger, more useful things, and just yolo hope it doesn't screw up
 3. 給 agent 更大、更有用的權限，然後只能 yolo 地希望它不要搞砸
+
 
 
 You may notice this is closely related to [factor 5 - unify execution state and business state](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-05-unify-execution-state.md) and [factor 6 - launch/pause/resume with simple APIs](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-06-launch-pause-resume.md), but can be implemented independently.

@@ -24,16 +24,16 @@ Creating great context means:
 打造優秀的 context，意味著你要處理好以下幾件事：
 
 - The prompt and instructions you give to the model
-- Any documents or external data you retrieve (e.g. RAG)
-- Any past state, tool calls, results, or other history 
-- Any past messages or events from related but separate histories/conversations (Memory)
-- Instructions about what sorts of structured data to output
-
 - 你提供給 model 的 prompt 與 instructions
+- Any documents or external data you retrieve (e.g. RAG)
 - 你擷取回來的任何文件或外部資料（例如 RAG）
+- Any past state, tool calls, results, or other history 
 - 任何過去的 state、tool calls、results，或其他歷史資訊
+- Any past messages or events from related but separate histories/conversations (Memory)
 - 來自相關但彼此分離的歷史／對話中的過往訊息或事件（Memory）
+- Instructions about what sorts of structured data to output
 - 關於應該輸出何種結構化資料的 instructions
+
 
 ![image](https://github.com/user-attachments/assets/0f1f193f-8e94-4044-a276-576bd7764fd0)
 
@@ -45,12 +45,12 @@ This guide is all about getting as much as possible out of today's models. Notab
 本指南的重點，是盡可能把當今 models 的能力發揮到最大。特別沒有納入討論的，包括：
 
 - Changes to models parameters like temperature, top_p, frequency_penalty, presence_penalty, etc.
-- Training your own completion or embedding models
-- Fine-tuning existing models
-
 - 調整 models parameters，例如 temperature、top_p、frequency_penalty、presence_penalty 等
+- Training your own completion or embedding models
 - 訓練你自己的 completion 或 embedding models
+- Fine-tuning existing models
 - 對既有 models 進行 fine-tuning
+
 
 Again, I don't know what's the best way to hand context to an LLM, but I know you want the flexibility to be able to try EVERYTHING.
 
@@ -282,16 +282,16 @@ Key benefits of owning your context window:
 自己掌握 context window 的主要好處包括：
 
 1. **Information Density**: Structure information in ways that maximize the LLM's understanding
-2. **Error Handling**: Include error information in a format that helps the LLM recover. Consider hiding errors and failed calls from context window once they are resolved.
-3. **Safety**: Control what information gets passed to the LLM, filtering out sensitive data
-4. **Flexibility**: Adapt the format as you learn what works best for your use case
-5. **Token Efficiency**: Optimize context format for token efficiency and LLM understanding
-
 1. **Information Density**：用最能幫助 LLM 理解的方式組織資訊
+2. **Error Handling**: Include error information in a format that helps the LLM recover. Consider hiding errors and failed calls from context window once they are resolved.
 2. **Error Handling**：以能幫助 LLM 復原的格式納入錯誤資訊；一旦問題解決，也可以考慮把 errors 與失敗的 calls 從 context window 中隱藏起來
+3. **Safety**: Control what information gets passed to the LLM, filtering out sensitive data
 3. **Safety**：控制哪些資訊會傳給 LLM，並過濾掉敏感資料
+4. **Flexibility**: Adapt the format as you learn what works best for your use case
 4. **Flexibility**：隨著你逐步了解什麼最適合自己的 use case，持續調整格式
+5. **Token Efficiency**: Optimize context format for token efficiency and LLM understanding
 5. **Token Efficiency**：為 token 效率與 LLM 理解能力最佳化 context format
+
 
 Context includes: prompts, instructions, RAG documents, history, tool calls, memory
 

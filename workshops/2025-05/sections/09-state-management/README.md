@@ -56,14 +56,14 @@ update the server to use the state management
 更新 server 以使用 state management。
 
 * Add thread state management using `ThreadStore`
-* return thread IDs and response URLs from the /thread endpoint
-* implement GET /thread/:id 
-* implement POST /thread/:id/response
-
 * 使用 `ThreadStore` 加入 thread state management
+* return thread IDs and response URLs from the /thread endpoint
 * 從 `/thread` endpoint 回傳 thread ID 與 response URL
+* implement GET /thread/:id 
 * 實作 `GET /thread/:id`
+* implement POST /thread/:id/response
 * 實作 `POST /thread/:id/response`
+
 
 
 ```diff

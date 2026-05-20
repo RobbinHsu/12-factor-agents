@@ -16,14 +16,14 @@ update the server to handle human approvals
 更新 server 以處理 human approvals。
 
 * Import `handleNextStep` to execute approved actions
-* Add two payload types to distinguish approvals from responses
-* Handle responses and approvals differently in the endpoint
-* Show better error messages when things go wrongs
-
 * 匯入 `handleNextStep` 以執行已核准的動作
+* Add two payload types to distinguish approvals from responses
 * 加入兩種 payload type，以區分 approvals 與 responses
+* Handle responses and approvals differently in the endpoint
 * 在 endpoint 中以不同方式處理 responses 與 approvals
+* Show better error messages when things go wrongs
 * 在發生問題時顯示更好的錯誤訊息
+
 
 
 ```diff

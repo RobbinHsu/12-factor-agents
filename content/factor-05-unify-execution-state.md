@@ -17,10 +17,10 @@ More clearly:
 說得更清楚一些：
 
 - **Execution state**: current step, next step, waiting status, retry counts, etc. 
-- **Business state**: What's happened in the agent workflow so far (e.g. list of OpenAI messages, list of tool calls and results, etc.)
-
 - **Execution state**：current step、next step、waiting status、retry counts 等資訊
+- **Business state**: What's happened in the agent workflow so far (e.g. list of OpenAI messages, list of tool calls and results, etc.)
 - **Business state**：到目前為止 agent workflow 中發生了什麼（例如 OpenAI messages 清單、tool calls 與 results 清單等）
+
 
 If possible, SIMPLIFY - unify these as much as possible. 
 
@@ -48,20 +48,20 @@ This approach has several benefits:
 這種做法有幾個好處：
 
 1. **Simplicity**: One source of truth for all state
-2. **Serialization**: The thread is trivially serializable/deserializable
-3. **Debugging**: The entire history is visible in one place
-4. **Flexibility**: Easy to add new state by just adding new event types
-5. **Recovery**: Can resume from any point by just loading the thread
-6. **Forking**: Can fork the thread at any point by copying some subset of the thread into a new context / state ID
-7. **Human Interfaces and Observability**: Trivial to convert a thread into a human-readable markdown or a rich Web app UI
-
 1. **Simplicity**：所有 state 都有單一可信來源
+2. **Serialization**: The thread is trivially serializable/deserializable
 2. **Serialization**：thread 可以非常輕鬆地序列化／反序列化
+3. **Debugging**: The entire history is visible in one place
 3. **Debugging**：完整歷史都集中在同一個地方，方便檢查
+4. **Flexibility**: Easy to add new state by just adding new event types
 4. **Flexibility**：只要新增新的 event types，就能輕鬆擴充 state
+5. **Recovery**: Can resume from any point by just loading the thread
 5. **Recovery**：只要重新載入 thread，就能從任何節點恢復
+6. **Forking**: Can fork the thread at any point by copying some subset of the thread into a new context / state ID
 6. **Forking**：只要複製 thread 的某個子集合到新的 context／state ID，就能在任意節點分叉
+7. **Human Interfaces and Observability**: Trivial to convert a thread into a human-readable markdown or a rich Web app UI
 7. **Human Interfaces and Observability**：可以很輕鬆地把 thread 轉成人類可讀的 markdown，或更豐富的 Web app UI
+
 
 [← Tools Are Structured Outputs](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-04-tools-are-structured-outputs.md) | [Launch/Pause/Resume →](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-06-launch-pause-resume.md)
 [← tools 是結構化輸出](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-04-tools-are-structured-outputs.md) | [啟動／暫停／恢復 →](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-06-launch-pause-resume.md)

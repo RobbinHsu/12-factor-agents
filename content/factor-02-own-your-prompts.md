@@ -95,16 +95,16 @@ Key benefits of owning your prompts:
 自己掌握 prompts 的主要好處包括：
 
 1. **Full Control**: Write exactly the instructions your agent needs, no black box abstractions
-2. **Testing and Evals**: Build tests and evals for your prompts just like you would for any other code
-3. **Iteration**: Quickly modify prompts based on real-world performance
-4. **Transparency**: Know exactly what instructions your agent is working with
-5. **Role Hacking**: take advantage of APIs that support nonstandard usage of user/assistant roles - for example, the now-deprecated non-chat flavor of OpenAI "completions" API. This includes some so-called "model gaslighting" techniques
-
 1. **Full Control**：精準寫出你的 agent 真正需要的指示，不必受 black box abstraction 限制
+2. **Testing and Evals**: Build tests and evals for your prompts just like you would for any other code
 2. **Testing and Evals**：像對待其他程式碼一樣，為 prompts 建立 tests 與 evals
+3. **Iteration**: Quickly modify prompts based on real-world performance
 3. **Iteration**：根據真實世界的表現快速修改 prompts
+4. **Transparency**: Know exactly what instructions your agent is working with
 4. **Transparency**：清楚知道你的 agent 實際在依循哪些指示
+5. **Role Hacking**: take advantage of APIs that support nonstandard usage of user/assistant roles - for example, the now-deprecated non-chat flavor of OpenAI "completions" API. This includes some so-called "model gaslighting" techniques
 5. **Role Hacking**：善用支援非標準 user/assistant roles 用法的 APIs，例如現在已淘汰的 OpenAI 非 chat 版 `completions` API；這也包含某些所謂的「model gaslighting」技巧
+
 
 Remember: Your prompts are the primary interface between your application logic and the LLM.
 

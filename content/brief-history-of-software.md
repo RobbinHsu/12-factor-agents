@@ -76,14 +76,14 @@ Put another way, you've got this loop consisting of 3 steps:
 換個說法，你會有一個由 3 個步驟組成的迴圈：
 
 1. LLM determines the next step in the workflow, outputting structured json ("tool calling")
-2. Deterministic code executes the tool call
-3. The result is appended to the context window 
-4. repeat until the next step is determined to be "done"
-
 1. LLM 決定 workflow 的下一步，並輸出結構化 json（「tool calling」）
+2. Deterministic code executes the tool call
 2. Deterministic code 執行該 tool call
+3. The result is appended to the context window 
 3. 將結果附加到 context window
+4. repeat until the next step is determined to be "done"
 4. 重複，直到下一步被判定為「done」
+
 
 ```python
 initial_event = {"message": "..."}
@@ -131,10 +131,10 @@ The biggest problems with this pattern:
 這種模式最大的問題是：
 
 - Agents get lost when the context window gets too long - they spin out trying the same broken approach over and over again
-- literally thats it, but that's enough to kneecap the approach
-
 - 當 context window 變得太長時，agents 很容易迷失方向——它們會一再打轉，重複嘗試同一個失敗的方法。
+- literally thats it, but that's enough to kneecap the approach
 - 真的基本上就這一點，但這已經足以讓整個方法跛腳。
+
 
 Even if you haven't hand-rolled an agent, you've probably seen this long-context problem in working with agentic coding tools. They just get lost after a while and you need to start a new chat.
 
@@ -185,42 +185,42 @@ Here's an example of how deterministic code might run one micro agent responsibl
 ![029-deploybot-high-level](https://github.com/RobbinHsu/12-factor-agents/blob/main/img/029-deploybot-high-level.png)
 
 * **Human** Merges PR to GitHub main branch
-* **Deterministic Code** Deploys to staging env
-* **Deterministic Code** Runs end-to-end (e2e) tests against staging
-* **Deterministic Code** Hands to agent for prod deployment, with initial context: "deploy SHA 4af9ec0 to production"
-* **Agent** calls `deploy_frontend_to_prod(4af9ec0)`
-* **Deterministic code** requests human approval on this action
-* **Human** Rejects the action with feedback "can you deploy the backend first?"
-* **Agent** calls `deploy_backend_to_prod(4af9ec0)`
-* **Deterministic code** requests human approval on this action
-* **Human** approves the action
-* **Deterministic code** executed the backend deployment
-* **Agent** calls `deploy_frontend_to_prod(4af9ec0)`
-* **Deterministic code** requests human approval on this action
-* **Human** approves the action
-* **Deterministic code** executed the frontend deployment
-* **Agent** determines that the task was completed successfully, we're done!
-* **Deterministic code** run the end-to-end tests against production
-* **Deterministic code** task completed, OR pass to rollback agent to review failures and potentially roll back
-
 * **Human** 將 PR 合併到 GitHub main branch
+* **Deterministic Code** Deploys to staging env
 * **Deterministic Code** 部署到 staging env
+* **Deterministic Code** Runs end-to-end (e2e) tests against staging
 * **Deterministic Code** 對 staging 執行 end-to-end（e2e）tests
+* **Deterministic Code** Hands to agent for prod deployment, with initial context: "deploy SHA 4af9ec0 to production"
 * **Deterministic Code** 把 prod deployment 交給 agent，並提供初始 context：「deploy SHA 4af9ec0 to production」
+* **Agent** calls `deploy_frontend_to_prod(4af9ec0)`
 * **Agent** 呼叫 `deploy_frontend_to_prod(4af9ec0)`
+* **Deterministic code** requests human approval on this action
 * **Deterministic code** 對此動作請求人類核准
+* **Human** Rejects the action with feedback "can you deploy the backend first?"
 * **Human** 以回饋「can you deploy the backend first?」拒絕此動作
+* **Agent** calls `deploy_backend_to_prod(4af9ec0)`
 * **Agent** 呼叫 `deploy_backend_to_prod(4af9ec0)`
+* **Deterministic code** requests human approval on this action
 * **Deterministic code** 對此動作請求人類核准
+* **Human** approves the action
 * **Human** 核准此動作
+* **Deterministic code** executed the backend deployment
 * **Deterministic code** 執行 backend deployment
+* **Agent** calls `deploy_frontend_to_prod(4af9ec0)`
 * **Agent** 呼叫 `deploy_frontend_to_prod(4af9ec0)`
+* **Deterministic code** requests human approval on this action
 * **Deterministic code** 對此動作請求人類核准
+* **Human** approves the action
 * **Human** 核准此動作
+* **Deterministic code** executed the frontend deployment
 * **Deterministic code** 執行 frontend deployment
+* **Agent** determines that the task was completed successfully, we're done!
 * **Agent** 判定任務已成功完成，我們結束了！
+* **Deterministic code** run the end-to-end tests against production
 * **Deterministic code** 對 production 執行 end-to-end tests
+* **Deterministic code** task completed, OR pass to rollback agent to review failures and potentially roll back
 * **Deterministic code** 完成任務，或把失敗交給 rollback agent 審查並視情況回滾
+
 
 [![033-deploybot-animation](https://github.com/RobbinHsu/12-factor-agents/blob/main/img/033-deploybot.gif)](https://github.com/user-attachments/assets/deb356e9-0198-45c2-9767-231cb569ae13)
 
@@ -250,14 +250,14 @@ Here's another [more classic support / chatbot demo](https://x.com/chainlit_io/s
 ### 所以，agent 到底是什麼？
 
 - **prompt** - tell an LLM how to behave, and what "tools" it has available. The output of the prompt is a JSON object that describe the next step in the workflow (the "tool call" or "function call"). ([factor 2](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-02-own-your-prompts.md))
-- **switch statement** - based on the JSON that the LLM returns, decide what to do with it. (part of [factor 8](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-08-own-your-control-flow.md))
-- **accumulated context** - store the list of steps that have happened and their results ([factor 3](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-03-own-your-context-window.md))
-- **for loop** - until the LLM emits some sort of "Terminal" tool call (or plaintext response), add the result of the switch statement to the context window and ask the LLM to choose the next step. ([factor 8](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-08-own-your-control-flow.md))
-
 - **prompt** - 告訴 LLM 應該如何行為，以及有哪些可用的「tools」。prompt 的輸出是一個 JSON 物件，用來描述 workflow 的下一步（也就是「tool call」或「function call」）。([factor 2](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-02-own-your-prompts.md))
+- **switch statement** - based on the JSON that the LLM returns, decide what to do with it. (part of [factor 8](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-08-own-your-control-flow.md))
 - **switch statement** - 根據 LLM 回傳的 JSON，決定接下來要怎麼處理它。（屬於 [factor 8](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-08-own-your-control-flow.md) 的一部分）
+- **accumulated context** - store the list of steps that have happened and their results ([factor 3](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-03-own-your-context-window.md))
 - **accumulated context** - 儲存已經發生過的步驟及其結果列表。([factor 3](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-03-own-your-context-window.md))
+- **for loop** - until the LLM emits some sort of "Terminal" tool call (or plaintext response), add the result of the switch statement to the context window and ask the LLM to choose the next step. ([factor 8](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-08-own-your-control-flow.md))
 - **for loop** - 在 LLM 發出某種「Terminal」tool call（或 plaintext 回應）之前，持續把 switch statement 的結果加入 context window，並讓 LLM 選擇下一步。([factor 8](https://github.com/RobbinHsu/12-factor-agents/blob/main/content/factor-08-own-your-control-flow.md))
+
 
 ![040-4-components](https://github.com/RobbinHsu/12-factor-agents/blob/main/img/040-4-components.png)
 
@@ -266,12 +266,12 @@ In the "deploybot" example, we gain a couple benefits from owning the control fl
 在「deploybot」這個例子中，掌握 control flow 與 context accumulation 能帶來幾個好處：
 
 - In our **switch statement** and **for loop**, we can hijack control flow to pause for human input or to wait for completion of long-running tasks
-- We can trivially serialize the **context** window for pause+resume
-- In our **prompt**, we can optimize the heck out of how we pass instructions and "what happened so far" to the LLM
-
 - 在 **switch statement** 和 **for loop** 中，我們可以接管 control flow，讓流程暫停以等待 human input，或等待長時間執行的 tasks 完成。
+- We can trivially serialize the **context** window for pause+resume
 - 我們可以很輕鬆地把 **context** window 序列化，以支援 pause+resume。
+- In our **prompt**, we can optimize the heck out of how we pass instructions and "what happened so far" to the LLM
 - 在 **prompt** 中，我們可以大幅優化把指令與「目前為止發生了什麼」傳給 LLM 的方式。
+
 
 
 [Part II](https://github.com/RobbinHsu/12-factor-agents/blob/main/README.md#12-factor-agents) will **formalize these patterns** so they can be applied to add impressive AI features to any software project, without needing to go all in on conventional implementations/definitions of "AI agent".

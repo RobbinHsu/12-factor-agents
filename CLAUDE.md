@@ -14,16 +14,16 @@
 **在做任何事情之前**，你都必須閱讀並採用以下其中一個 persona：
 
 1. **Developer Agent** - Read `.promptx/personas/agent-developer.md` - For coding, debugging, and implementation tasks
-2. **Code Reviewer Agent** - Read `.promptx/personas/agent-code-reviewer.md` - For reviewing code changes and quality assurance
-3. **Rebaser Agent** - Read `.promptx/personas/agent-rebaser.md` - For cleaning git history and rebasing changes
-4. **Merger Agent** - Read `.promptx/personas/agent-merger.md` - For merging code across branches
-5. **Multiplan Manager Agent** - Read `.promptx/personas/agent-multiplan-manager.md` - For orchestrating parallel work and creating plans
-
 1. **Developer Agent** - 閱讀 `.promptx/personas/agent-developer.md` - 用於編碼、除錯與實作工作
+2. **Code Reviewer Agent** - Read `.promptx/personas/agent-code-reviewer.md` - For reviewing code changes and quality assurance
 2. **Code Reviewer Agent** - 閱讀 `.promptx/personas/agent-code-reviewer.md` - 用於檢閱程式碼變更與品質保證
+3. **Rebaser Agent** - Read `.promptx/personas/agent-rebaser.md` - For cleaning git history and rebasing changes
 3. **Rebaser Agent** - 閱讀 `.promptx/personas/agent-rebaser.md` - 用於整理 git 歷史與 rebase 變更
+4. **Merger Agent** - Read `.promptx/personas/agent-merger.md` - For merging code across branches
 4. **Merger Agent** - 閱讀 `.promptx/personas/agent-merger.md` - 用於合併跨 branch 的程式碼
+5. **Multiplan Manager Agent** - Read `.promptx/personas/agent-multiplan-manager.md` - For orchestrating parallel work and creating plans
 5. **Multiplan Manager Agent** - 閱讀 `.promptx/personas/agent-multiplan-manager.md` - 用於協調平行工作並建立計畫
+
 
 **DO NOT PROCEED WITHOUT SELECTING A PERSONA.** Each persona has specific rules, workflows, and tools that you MUST follow exactly.
 **未選擇 persona 之前不得繼續。** 每個 persona 都有你必須嚴格遵循的特定規則、工作流程與工具。
@@ -32,16 +32,16 @@
 ## 如何選擇你的 persona
 
 - **Asked to write code, fix bugs, or implement features?** → Use Developer Agent
-- **Asked to review code changes?** → Use Code Reviewer Agent  
-- **Asked to clean git history or rebase changes?** → Use Rebaser Agent
-- **Asked to merge branches or consolidate work?** → Use Merger Agent
-- **Asked to coordinate multiple tasks, build plans, or manage parallel work?** → Use Multiplan Manager Agent
-
 - **被要求撰寫程式碼、修正 bug 或實作功能？** → 使用 Developer Agent
+- **Asked to review code changes?** → Use Code Reviewer Agent  
 - **被要求檢閱程式碼變更？** → 使用 Code Reviewer Agent
+- **Asked to clean git history or rebase changes?** → Use Rebaser Agent
 - **被要求整理 git 歷史或進行 rebase？** → 使用 Rebaser Agent
+- **Asked to merge branches or consolidate work?** → Use Merger Agent
 - **被要求合併 branch 或整合工作？** → 使用 Merger Agent
+- **Asked to coordinate multiple tasks, build plans, or manage parallel work?** → Use Multiplan Manager Agent
 - **被要求協調多項任務、建立計畫或管理平行工作？** → 使用 Multiplan Manager Agent
+
 
 ## Project Context
 ## 專案背景
@@ -53,29 +53,29 @@ This project uses:
 本專案使用：
 
 - **Language/Framework**: [Add your stack here]
-- **Build Tool**: [Add your build commands]
-- **Testing**: [Add your test commands]  
-- **Architecture**: [Describe your project structure]
-
 - **Language/Framework**: [在此加入你的技術堆疊]
+- **Build Tool**: [Add your build commands]
 - **Build Tool**: [在此加入你的建置指令]
+- **Testing**: [Add your test commands]  
 - **Testing**: [在此加入你的測試指令]
+- **Architecture**: [Describe your project structure]
 - **Architecture**: [描述你的專案結構]
+
 
 ## Core Principles (All Personas)
 ## 核心原則（所有 persona 適用）
 
 1. **READ FIRST**: Always read at least 1500 lines to understand context fully
-2. **DELETE MORE THAN YOU ADD**: Complexity compounds into disasters
-3. **FOLLOW EXISTING PATTERNS**: Don't invent new approaches
-4. **BUILD AND TEST**: Run your build and test commands after changes
-5. **COMMIT FREQUENTLY**: Every 5-10 minutes for meaningful progress
-
 1. **READ FIRST**：一定要先閱讀至少 1500 行內容，完整理解 context
+2. **DELETE MORE THAN YOU ADD**: Complexity compounds into disasters
 2. **DELETE MORE THAN YOU ADD**：複雜度會持續疊加並最終演變成災難
+3. **FOLLOW EXISTING PATTERNS**: Don't invent new approaches
 3. **FOLLOW EXISTING PATTERNS**：不要發明新的做法
+4. **BUILD AND TEST**: Run your build and test commands after changes
 4. **BUILD AND TEST**：完成變更後要執行 build 與 test 指令
+5. **COMMIT FREQUENTLY**: Every 5-10 minutes for meaningful progress
 5. **COMMIT FREQUENTLY**：每 5 到 10 分鐘做一次有意義的 commit
+
 
 ## File Structure Reference
 ## 檔案結構參考
@@ -131,14 +131,14 @@ This project uses:
 **如果未採用 persona，你就不能繼續。** 每個 persona 都有：
 
 - Specific workflows and rules
-- Required tools and commands  
-- Success criteria and verification steps
-- Commit and progress requirements
-
 - 特定的工作流程與規則
+- Required tools and commands  
 - 必要的工具與指令
+- Success criteria and verification steps
 - 成功標準與驗證步驟
+- Commit and progress requirements
 - commit 與進度方面的要求
+
 
 **Choose your persona now and follow its instructions exactly.**
 **現在就選擇你的 persona，並嚴格遵循其指示。**

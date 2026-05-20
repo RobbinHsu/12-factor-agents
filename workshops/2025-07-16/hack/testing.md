@@ -16,14 +16,14 @@ The testing framework provides a complete iteration loop for testing notebook im
 此測試框架提供一個完整的迭代循環，用來測試 notebook 實作：
 
 1. **Generate** test notebooks with specific functionality 
-2. **Execute** notebooks in a simulated Google Colab environment  
-3. **Analyze** executed notebooks for expected outputs and behaviors
-4. **Report** clear pass/fail results
-
 1. **Generate** 具有特定功能的測試 notebooks
+2. **Execute** notebooks in a simulated Google Colab environment  
 2. **Execute** 在模擬的 Google Colab 環境中執行 notebooks
+3. **Analyze** executed notebooks for expected outputs and behaviors
 3. **Analyze** 已執行 notebooks 是否具有預期輸出與行為
+4. **Report** clear pass/fail results
 4. **Report** 清楚的通過／失敗結果
+
 
 ### Core Components
 ### 核心組件
@@ -40,26 +40,26 @@ The simulation script creates a realistic Google Colab environment for any noteb
 **環境設定：**
 
 - Creates timestamped test directory: `./tmp/test_YYYYMMDD_HHMMSS/`
-- Sets up fresh Python virtual environment
-- Installs Jupyter dependencies (`notebook`, `nbconvert`, `ipykernel`)
-
 - 建立帶有時間戳記的測試目錄：`./tmp/test_YYYYMMDD_HHMMSS/`
+- Sets up fresh Python virtual environment
 - 建立全新的 Python virtual environment
+- Installs Jupyter dependencies (`notebook`, `nbconvert`, `ipykernel`)
 - 安裝 Jupyter dependencies（`notebook`、`nbconvert`、`ipykernel`）
+
 
 **Notebook Execution:**
 
 **Notebook 執行：**
 
 - Copies test notebook to clean environment
-- Uses `ExecutePreprocessor` to run all cells (simulates Colab execution)
-- **Critical:** Activates virtual environment before execution
-- **Critical:** Saves executed notebook with cell outputs back to disk
-
 - 將測試 notebook 複製到乾淨的環境中
+- Uses `ExecutePreprocessor` to run all cells (simulates Colab execution)
 - 使用 `ExecutePreprocessor` 執行所有 cells（模擬 Colab 執行）
+- **Critical:** Activates virtual environment before execution
 - **Critical：** 在執行前啟用 virtual environment
+- **Critical:** Saves executed notebook with cell outputs back to disk
 - **Critical：** 將包含 cell outputs 的已執行 notebook 寫回磁碟
+
 
 **Usage:**
 
@@ -74,14 +74,14 @@ The simulator will:
 模擬器會：
 
 - Execute all cells in the notebook
-- Preserve the test directory for inspection
-- Show final directory structure
-- Report success/failure
-
 - 執行 notebook 中的所有 cells
+- Preserve the test directory for inspection
 - 保留測試目錄供檢查使用
+- Show final directory structure
 - 顯示最終目錄結構
+- Report success/failure
 - 回報成功／失敗
+
 
 #### Output Inspector (`inspect_notebook.py`)
 #### Output Inspector（`inspect_notebook.py`）
@@ -95,16 +95,16 @@ Debug utility for examining notebook cell outputs in detail:
 **功能：**
 
 - Shows cell source code and execution counts  
-- Displays all output types (stream, execute_result, error)
-- Highlights patterns in output text
-- Shows execution errors with tracebacks
-- Filters cells by keywords for focused debugging
-
 - 顯示 cell 原始碼與 execution counts  
+- Displays all output types (stream, execute_result, error)
 - 顯示所有 output types（stream、execute_result、error）
+- Highlights patterns in output text
 - 標示 output text 中的模式
+- Shows execution errors with tracebacks
 - 顯示含 traceback 的執行錯誤
+- Filters cells by keywords for focused debugging
 - 依關鍵字篩選 cells，以便聚焦除錯
+
 
 **Usage:**
 
@@ -152,21 +152,21 @@ print("Error!", file=sys.stderr)
 #### 執行環境
 
 1. **Virtual environment activation is critical** - Without it, execution fails silently
-2. **Output persistence must be explicit** - `ExecutePreprocessor` only modifies notebook in memory
-3. **Check execution counts** - `execution_count=None` means cell never executed
-4. **Handle different output types** - stream, execute_result, error, display_data
-
 1. **Virtual environment activation 非常重要** - 少了它，執行可能會靜默失敗
+2. **Output persistence must be explicit** - `ExecutePreprocessor` only modifies notebook in memory
 2. **Output persistence 必須明確處理** - `ExecutePreprocessor` 只會修改記憶體中的 notebook
+3. **Check execution counts** - `execution_count=None` means cell never executed
 3. **檢查 execution counts** - `execution_count=None` 代表 cell 從未執行
+4. **Handle different output types** - stream, execute_result, error, display_data
 4. **處理不同 output types** - stream、execute_result、error、display_data
+
 
 #### Common Debugging Steps
 #### 常見除錯步驟
 
 1. **Verify basic execution:**
-
 1. **驗證基本執行：**
+
 
    ```bash
    python3 -c "
@@ -177,16 +177,16 @@ print("Error!", file=sys.stderr)
    ```
 
 2. **Check for execution errors:**
-
 2. **檢查執行錯誤：**
+
 
    ```bash
    python3 inspect_notebook.py path/to/notebook.ipynb "error"
    ```
 
 3. **Look for specific output patterns:**
-
 3. **尋找特定輸出模式：**
+
 
    ```bash
    python3 inspect_notebook.py path/to/notebook.ipynb "your_pattern"
@@ -536,16 +536,16 @@ Found log capture test in cell 11
 ### BAML 專屬的重要觀察
 
 1. **BAML logs go to stderr** - Due to FFI bindings to Rust binary
-2. **Requires `BAML_LOG=info`** - Environment variable controls verbosity  
-3. **Logs include ANSI color codes** - Need to handle terminal formatting
-4. **Pattern matching** - Look for `---Parsed Response (class DoneForNow)---` to confirm successful execution
-5. **IPython capture_output() works** - Successfully captures stderr in notebook context
-
 1. **BAML logs 會輸出到 stderr** - 因為它透過 FFI bindings 呼叫 Rust binary
+2. **Requires `BAML_LOG=info`** - Environment variable controls verbosity  
 2. **需要 `BAML_LOG=info`** - 由環境變數控制詳細程度  
+3. **Logs include ANSI color codes** - Need to handle terminal formatting
 3. **Logs 包含 ANSI color codes** - 需要處理終端格式化
+4. **Pattern matching** - Look for `---Parsed Response (class DoneForNow)---` to confirm successful execution
 4. **Pattern matching** - 尋找 `---Parsed Response (class DoneForNow)---` 以確認執行成功
+5. **IPython capture_output() works** - Successfully captures stderr in notebook context
 5. **`IPython capture_output()` 可正常運作** - 能在 notebook 情境中成功擷取 stderr
+
 
 ### Iteration Loop Benefits
 ### 迭代循環的好處
@@ -555,16 +555,16 @@ This framework enables rapid testing of different log capture approaches:
 這個框架可以讓你快速測試不同的 log capture 方法：
 
 1. **Modify** the `run_with_baml_logs` function in `walkthroughgen_py.py`
-2. **Run** `./test_log_capture.sh`  
-3. **Get** immediate pass/fail feedback
-4. **Debug** with `inspect_notebook.py` if needed
-5. **Repeat** until working implementation found
-
 1. **Modify** `walkthroughgen_py.py` 中的 `run_with_baml_logs` 函式
 2. **Run** `./test_log_capture.sh`  
+2. **Run** `./test_log_capture.sh`  
+3. **Get** immediate pass/fail feedback
 3. **Get** 立即的通過／失敗回饋
+4. **Debug** with `inspect_notebook.py` if needed
 4. **Debug** 必要時使用 `inspect_notebook.py`
+5. **Repeat** until working implementation found
 5. **Repeat** 直到找到可運作的實作為止
+
 
 This same pattern can be applied to test any notebook functionality: library integrations, environment setup, output formatting, error handling, etc.
 
